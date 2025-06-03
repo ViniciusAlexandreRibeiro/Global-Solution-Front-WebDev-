@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SimFlood - Simulação e visualização de cenários de enchentes">
+  <title>SimFlood | AquaCore</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/simflood.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-simflood">
+  <header id="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <h1>Aqua<span>Core</span></h1>
+        </a>
+      </div>
+      <nav>
+        <button id="mobile-menu-btn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="main-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="infracheck.html">InfraCheck</a></li>
+          <li><a href="simflood.html" class="active">SimFlood</a></li>
+          <li><a href="lifehub.html">LifeHub</a></li>
+          <li class="cta-btn"><a href="#simulation-tool">Iniciar Simulação</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h2>SimFlood</h2>
+          <p class="subtitle">Simule cenários de enchentes e visualize áreas de risco em tempo real</p>
+          <a href="#simulation-tool" class="cta-button">Iniciar Simulação</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Risk Map Section -->
+    <section id="risk-map" class="section">
+      <div class="container">
+        <h2 class="section-title">Mapa de Risco</h2>
+        <p class="section-description">Visualize áreas de risco com base em dados históricos e topográficos</p>
+        
+        <div class="risk-controls">
+          <div class="location-selector">
+            <label for="risk-location">Localização:</label>
+            <div class="location-input">
+              <input type="text" id="risk-location" placeholder="Digite um endereço ou cidade">
+              <button id="search-location"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+          
+          <div class="view-selector">
+            <h3>Visualização:</h3>
+            <div class="view-options">
+              <label>
+                <input type="radio" name="map-view" value="risk" checked>
+                <span>Risco</span>
+              </label>
+              <label>
+                <input type="radio" name="map-view" value="elevation">
+                <span>Elevação</span>
+              </label>
+              <label>
+                <input type="radio" name="map-view" value="historical">
+                <span>Histórico</span>
+              </label>
+              <label>
+                <input type="radio" name="map-view" value="satellite">
+                <span>Satélite</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <div id="risk-map-container" class="map-container">
+          <!-- Mapa será carregado via JavaScript -->
+          <div class="map-loading">
+            <div class="loader"></div>
+            <p>Carregando mapa de risco...</p>
+          </div>
+        </div>
+        
+        <div class="risk-legend">
+          <h3>Níveis de Risco:</h3>
+          <div class="legend-items">
+            <div class="legend-item">
+              <span class="legend-color risk-very-low"></span>
+              <span>Muito Baixo</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color risk-low"></span>
+              <span>Baixo</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color risk-medium"></span>
+              <span>Médio</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color risk-high"></span>
+              <span>Alto</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color risk-very-high"></span>
+              <span>Muito Alto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulation Tool Section -->
+    <section id="simulation-tool" class="section alt-bg">
+      <div class="container">
+        <h2 class="section-title">Simulador de Enchentes</h2>
+        <p class="section-description">Crie simulações baseadas em diversos parâmetros meteorológicos e geográficos</p>
+        
+        <div class="simulation-container">
+          <div class="simulation-controls">
+            <div class="form-group">
+              <label for="sim-location">Localização:</label>
+              <input type="text" id="sim-location" placeholder="Digite um endereço ou cidade">
+            </div>
+            
+            <div class="form-group">
+              <label for="rainfall-amount">Volume de Chuva:</label>
+              <div class="range-slider">
+                <input type="range" id="rainfall-amount" min="0" max="500" value="100" step="10">
+                <div class="range-value"><span id="rainfall-value">100</span> mm</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="rainfall-duration">Duração da Chuva:</label>
+              <div class="range-slider">
+                <input type="range" id="rainfall-duration" min="1" max="72" value="24" step="1">
+                <div class="range-value"><span id="duration-value">24</span> horas</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="soil-saturation">Saturação do Solo:</label>
+              <div class="range-slider">
+                <input type="range" id="soil-saturation" min="0" max="100" value="50" step="5">
+                <div class="range-value"><span id="saturation-value">50</span>%</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="tide-level">Nível de Maré (áreas costeiras):</label>
+              <div class="range-slider">
+                <input type="range" id="tide-level" min="0" max="3" value="1" step="0.1">
+                <div class="range-value"><span id="tide-value">1.0</span> m</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Infraestrutura de Drenagem:</label>
+              <div class="radio-options">
+                <label>
+                  <input type="radio" name="drainage" value="poor">
+                  <span>Precária</span>
+                </label>
+                <label>
+                  <input type="radio" name="drainage" value="average" checked>
+                  <span>Média</span>
+                </label>
+                <label>
+                  <input type="radio" name="drainage" value="good">
+                  <span>Boa</span>
+                </label>
+                <label>
+                  <input type="radio" name="drainage" value="excellent">
+                  <span>Excelente</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="advanced-options">
+              <button id="toggle-advanced" class="toggle-button">
+                <span>Opções Avançadas</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="advanced-panel">
+                <div class="form-group">
+                  <label for="river-level">Nível Inicial dos Rios:</label>
+                  <div class="range-slider">
+                    <input type="range" id="river-level" min="0" max="100" value="50" step="5">
+                    <div class="range-value"><span id="river-value">50</span>%</div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="urban-density">Densidade Urbana:</label>
+                  <div class="range-slider">
+                    <input type="range" id="urban-density" min="0" max="100" value="70" step="5">
+                    <div class="range-value"><span id="density-value">70</span>%</div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label>Tipo de Solo Predominante:</label>
+                  <select id="soil-type">
+                    <option value="clay">Argiloso (baixa permeabilidade)</option>
+                    <option value="loam" selected>Médio (permeabilidade moderada)</option>
+                    <option value="sand">Arenoso (alta permeabilidade)</option>
+                    <option value="rock">Rochoso (muito baixa permeabilidade)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="simulation-actions">
+              <button id="run-simulation" class="primary-button">Executar Simulação</button>
+              <button id="reset-simulation" class="secondary-button">Redefinir</button>
+              <button id="save-scenario" class="secondary-button">Salvar Cenário</button>
+            </div>
+          </div>
+          
+          <div class="simulation-result">
+            <div class="result-tabs">
+              <button class="tab-button active" data-tab="visualization">Visualização</button>
+              <button class="tab-button" data-tab="data">Dados</button>
+              <button class="tab-button" data-tab="timeline">Linha do Tempo</button>
+            </div>
+            
+            <div class="tab-content">
+              <div id="visualization-tab" class="tab-pane active">
+                <div id="simulation-map">
+                  <!-- Mapa de simulação será carregado via JavaScript -->
+                  <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>Execute a simulação para ver os resultados no mapa</p>
+                  </div>
+                </div>
+                
+                <div class="visualization-controls">
+                  <div class="time-slider-container">
+                    <label for="time-slider">Progressão do Tempo:</label>
+                    <input type="range" id="time-slider" min="0" max="100" value="0" step="1" disabled>
+                    <div class="slider-labels">
+                      <span>0h</span>
+                      <span>24h</span>
+                      <span>48h</span>
+                      <span>72h</span>
+                    </div>
+                  </div>
+                  
+                  <div class="playback-controls">
+                    <button id="play-simulation" disabled><i class="fas fa-play"></i></button>
+                    <button id="pause-simulation" disabled><i class="fas fa-pause"></i></button>
+                    <button id="reset-playback" disabled><i class="fas fa-undo"></i></button>
+                  </div>
+                </div>
+              </div>
+              
+              <div id="data-tab" class="tab-pane">
+                <div class="data-summary">
+                  <h3>Resumo da Simulação</h3>
+                  <div class="data-grid">
+                    <div class="data-item">
+                      <h4>Área Afetada</h4>
+                      <div class="data-value">-- km²</div>
+                    </div>
+                    <div class="data-item">
+                      <h4>População Impactada</h4>
+                      <div class="data-value">-- pessoas</div>
+                    </div>
+                    <div class="data-item">
+                      <h4>Profundidade Máxima</h4>
+                      <div class="data-value">-- m</div>
+                    </div>
+                    <div class="data-item">
+                      <h4>Tempo para Pico</h4>
+                      <div class="data-value">-- horas</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="data-charts">
+                  <div class="chart-container">
+                    <h4>Evolução da Área Inundada</h4>
+                    <div class="chart-placeholder">
+                      <i class="fas fa-chart-area"></i>
+                      <p>Execute a simulação para gerar gráficos</p>
+                    </div>
+                  </div>
+                  
+                  <div class="chart-container">
+                    <h4>Distribuição de Profundidade</h4>
+                    <div class="chart-placeholder">
+                      <i class="fas fa-chart-bar"></i>
+                      <p>Execute a simulação para gerar gráficos</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div id="timeline-tab" class="tab-pane">
+                <div class="timeline-container">
+                  <h3>Progressão da Enchente</h3>
+                  <div class="timeline-placeholder">
+                    <i class="fas fa-clock"></i>
+                    <p>Execute a simulação para gerar a linha do tempo</p>
+                  </div>
+                  
+                  <div class="flood-timeline" style="display: none;">
+                    <!-- Será preenchido via JavaScript após simulação -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Historical Data Section -->
+    <section id="historical-data" class="section">
+      <div class="container">
+        <h2 class="section-title">Dados Históricos</h2>
+        <p class="section-description">Explore registros de enchentes anteriores para entender padrões e riscos</p>
+        
+        <div class="historical-controls">
+          <div class="form-group">
+            <label for="historical-location">Localização:</label>
+            <input type="text" id="historical-location" placeholder="Digite um endereço ou cidade">
+          </div>
+          
+          <div class="form-group">
+            <label for="date-range">Período:</label>
+            <div class="date-range-input">
+              <input type="month" id="date-start" value="2015-01">
+              <span>até</span>
+              <input type="month" id="date-end" value="2025-01">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="event-type">Tipo de Evento:</label>
+            <select id="event-type">
+              <option value="all">Todos os Tipos</option>
+              <option value="flood">Enchentes</option>
+              <option value="flash-flood">Enxurradas</option>
+              <option value="coastal-flood">Inundações Costeiras</option>
+              <option value="river-flood">Inundações Fluviais</option>
+            </select>
+          </div>
+          
+          <button id="search-historical" class="primary-button">Buscar Eventos</button>
+        </div>
+        
+        <div class="historical-results">
+          <div class="results-tabs">
+            <button class="result-tab active" data-result="map-view">Mapa</button>
+            <button class="result-tab" data-result="list-view">Lista</button>
+            <button class="result-tab" data-result="chart-view">Gráficos</button>
+          </div>
+          
+          <div class="result-content">
+            <div id="historical-map-view" class="result-pane active">
+              <div id="historical-map">
+                <!-- Mapa histórico será carregado via JavaScript -->
+                <div class="map-placeholder">
+                  <i class="fas fa-history"></i>
+                  <p>Busque eventos para visualizar no mapa</p>
+                </div>
+              </div>
+            </div>
+            
+            <div id="historical-list-view" class="result-pane">
+              <div class="event-list">
+                <div class="event-list-header">
+                  <div class="event-date">Data</div>
+                  <div class="event-type">Tipo</div>
+                  <div class="event-location">Local</div>
+                  <div class="event-impact">Impacto</div>
+                  <div class="event-actions">Ações</div>
+                </div>
+                
+                <div class="event-list-body">
+                  <p class="no-events">Nenhum evento histórico encontrado. Ajuste os filtros e tente novamente.</p>
+                  
+                  <!-- Eventos de exemplo, serão substituídos por dados reais -->
+                  <div class="event-item" style="display: none;">
+                    <div class="event-date">12/02/2023</div>
+                    <div class="event-type">Enchente</div>
+                    <div class="event-location">Rio Tietê, São Paulo</div>
+                    <div class="event-impact">Alto</div>
+                    <div class="event-actions">
+                      <button class="view-event"><i class="fas fa-eye"></i></button>
+                      <button class="compare-event"><i class="fas fa-chart-line"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div id="historical-chart-view" class="result-pane">
+              <div class="chart-selectors">
+                <div class="form-group">
+                  <label for="chart-type">Tipo de Gráfico:</label>
+                  <select id="chart-type">
+                    <option value="frequency">Frequência de Eventos</option>
+                    <option value="severity">Severidade ao Longo do Tempo</option>
+                    <option value="rainfall">Relação Chuva x Inundação</option>
+                    <option value="seasonal">Padrões Sazonais</option>
+                  </select>
+                </div>
+                
+                <button id="generate-chart" class="primary-button">Gerar Gráfico</button>
+              </div>
+              
+              <div class="chart-display">
+                <div class="chart-placeholder">
+                  <i class="fas fa-chart-line"></i>
+                  <p>Selecione um tipo de gráfico e clique em "Gerar Gráfico"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Early Warning System -->
+    <section id="warning-system" class="section alt-bg">
+      <div class="container">
+        <h2 class="section-title">Sistema de Alerta Precoce</h2>
+        <p class="section-description">Configure alertas personalizados para sua localização</p>
+        
+        <div class="alert-system">
+          <div class="alert-setup">
+            <h3>Configurar Alertas</h3>
+            <form id="alert-form">
+              <div class="form-group">
+                <label for="alert-location">Localização para Monitorar:</label>
+                <input type="text" id="alert-location" placeholder="Digite um endereço ou cidade" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="alert-radius">Raio de Monitoramento:</label>
+                <div class="range-slider">
+                  <input type="range" id="alert-radius" min="1" max="50" value="10" step="1">
+                  <div class="range-value"><span id="radius-value">10</span> km</div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Tipos de Alerta:</label>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" name="alert-types" value="rainfall" checked>
+                    <span>Chuva Intensa</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="alert-types" value="flood" checked>
+                    <span>Risco de Enchente</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="alert-types" value="infrastructure" checked>
+                    <span>Danos em Infraestrutura</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="alert-types" value="evacuation">
+                    <span>Ordens de Evacuação</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Nível de Urgência:</label>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="alert-severity" value="all" checked>
+                    <span>Todos os Níveis</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="alert-severity" value="moderate">
+                    <span>Moderado ou Superior</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="alert-severity" value="high">
+                    <span>Alto ou Superior</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="alert-severity" value="extreme">
+                    <span>Apenas Extremo</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Método de Notificação:</label>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" name="alert-methods" value="email" checked>
+                    <span>E-mail</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="alert-methods" value="sms">
+                    <span>SMS</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="alert-methods" value="push">
+                    <span>Notificação Push</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="alert-methods" value="whatsapp">
+                    <span>WhatsApp</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="form-group contact-info">
+                <label for="contact-email">E-mail:</label>
+                <input type="email" id="contact-email" placeholder="Seu e-mail para alertas" required>
+              </div>
+              
+              <div class="form-group contact-info">
+                <label for="contact-phone">Telefone:</label>
+                <input type="tel" id="contact-phone" placeholder="Seu telefone para alertas">
+              </div>
+              
+              <div class="form-actions">
+                <button type="submit" class="primary-button">Salvar Configurações</button>
+                <button type="reset" class="secondary-button">Limpar</button>
+              </div>
+            </form>
+          </div>
+          
+          <div class="alert-preview">
+            <h3>Previsão de Alertas</h3>
+            <p class="preview-info">Com base nas suas configurações e dados atuais, veja os possíveis alertas para os próximos 7 dias:</p>
+            
+            <div class="preview-map" id="preview-map">
+              <!-- Mapa de previsão será carregado via JavaScript -->
+            </div>
+            
+            <div class="alert-forecast">
+              <div class="forecast-day">
+                <h4>Hoje</h4>
+                <div class="alert-badges">
+                  <span class="alert-badge moderate">Chuva Moderada</span>
+                </div>
+                <p>Previsão de 35mm de chuva. Risco baixo de enchentes.</p>
+              </div>
+              
+              <div class="forecast-day">
+                <h4>Amanhã</h4>
+                <div class="alert-badges">
+                  <span class="alert-badge high">Chuva Intensa</span>
+                  <span class="alert-badge moderate">Risco de Enchente</span>
+                </div>
+                <p>Previsão de 85mm de chuva. Risco moderado de enchentes localizadas.</p>
+              </div>
+              
+              <div class="forecast-day">
+                <h4>Depois de Amanhã</h4>
+                <div class="alert-badges">
+                  <span class="alert-badge extreme">Alerta Extremo</span>
+                </div>
+                <p>Previsão de 120mm de chuva contínua. Alto risco de enchentes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>Aqua<span>Core</span></h2>
+          <p>Tecnologia a serviço da prevenção e mitigação de enchentes</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3>Ferramentas</h3>
+            <ul>
+              <li><a href="infracheck.html">InfraCheck</a></li>
+              <li><a href="simflood.html" class="active">SimFlood</a></li>
+              <li><a href="lifehub.html">LifeHub</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Recursos</h3>
+            <ul>
+              <li><a href="#">Mapa de Riscos</a></li>
+              <li><a href="#">Guia de Emergências</a></li>
+              <li><a href="#">Relatórios</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Contato</h3>
+            <ul>
+              <li><a href="mailto:contato@aquacore.org">contato@aquacore.org</a></li>
+              <li><a href="tel:+5511999999999">+55 (11) 99999-9999</a></li>
+              <li>Emergência: 199 (Defesa Civil)</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-social">
+          <h3>Redes Sociais</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 AquaCore. Todos os direitos reservados.</p>
+        <div class="footer-legal">
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script src="js/simulation.js"></script>
+</body>
+</html>

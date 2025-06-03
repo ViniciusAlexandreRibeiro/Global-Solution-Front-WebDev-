@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="InfraCheck - Reporte e acompanhe danos em infraestrutura durante enchentes">
+  <title>InfraCheck | AquaCore</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/infracheck.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-infracheck">
+  <header id="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <h1>Aqua<span>Core</span></h1>
+        </a>
+      </div>
+      <nav>
+        <button id="mobile-menu-btn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="main-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="infracheck.html" class="active">InfraCheck</a></li>
+          <li><a href="simflood.html">SimFlood</a></li>
+          <li><a href="lifehub.html">LifeHub</a></li>
+          <li class="cta-btn"><a href="#report-form">Reportar Dano</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h2>InfraCheck</h2>
+          <p class="subtitle">Monitore e reporte danos em infraestrutura para acelerar a resposta</p>
+          <a href="#report-form" class="cta-button">Reportar Agora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="damage-map" class="section">
+      <div class="container">
+        <h2 class="section-title">Mapa de Danos</h2>
+        <p class="section-description">Visualize ocorrências em tempo real e planeje rotas seguras</p>
+        
+        <div class="map-container">
+          <div class="map-controls">
+            <div class="filter-group">
+              <h3>Filtrar por:</h3>
+              <div class="filter-options">
+                <label>
+                  <input type="checkbox" name="filter-roads" checked>
+                  <span>Estradas</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="filter-bridges" checked>
+                  <span>Pontes</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="filter-buildings" checked>
+                  <span>Edifícios</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="filter-power" checked>
+                  <span>Energia</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="filter-water" checked>
+                  <span>Água/Esgoto</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="severity-filter">
+              <h3>Gravidade:</h3>
+              <div class="filter-options">
+                <label>
+                  <input type="checkbox" name="severity-low" checked>
+                  <span class="severity low">Baixa</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="severity-medium" checked>
+                  <span class="severity medium">Média</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="severity-high" checked>
+                  <span class="severity high">Alta</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="severity-critical" checked>
+                  <span class="severity critical">Crítica</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="status-filter">
+              <h3>Status:</h3>
+              <div class="filter-options">
+                <label>
+                  <input type="checkbox" name="status-reported" checked>
+                  <span class="status reported">Reportado</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="status-verified" checked>
+                  <span class="status verified">Verificado</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="status-in-progress" checked>
+                  <span class="status in-progress">Em Andamento</span>
+                </label>
+                <label>
+                  <input type="checkbox" name="status-resolved" checked>
+                  <span class="status resolved">Resolvido</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <div id="interactive-map">
+            <!-- Mapa será carregado via JavaScript -->
+            <div class="map-loading">
+              <div class="loader"></div>
+              <p>Carregando mapa...</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="map-legend">
+          <h3>Legenda:</h3>
+          <div class="legend-items">
+            <div class="legend-item">
+              <span class="legend-icon road"></span>
+              <span>Estradas</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-icon bridge"></span>
+              <span>Pontes</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-icon building"></span>
+              <span>Edifícios</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-icon power"></span>
+              <span>Energia</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-icon water"></span>
+              <span>Água/Esgoto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Report Form Section -->
+    <section id="report-form" class="section alt-bg">
+      <div class="container">
+        <h2 class="section-title">Reportar Dano</h2>
+        <p class="section-description">Forneça informações detalhadas para ajudar na resposta rápida</p>
+        
+        <form id="damage-report-form" class="report-form">
+          <div class="form-group">
+            <label for="damage-type">Tipo de Dano:</label>
+            <select id="damage-type" name="damage-type" required>
+              <option value="">Selecione o tipo de dano</option>
+              <option value="road">Estrada/Rua</option>
+              <option value="bridge">Ponte</option>
+              <option value="building">Edifício</option>
+              <option value="power">Rede Elétrica</option>
+              <option value="water">Sistema de Água/Esgoto</option>
+            </select>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="damage-location">Localização:</label>
+              <input type="text" id="damage-location" name="damage-location" placeholder="Endereço ou descrição do local" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="damage-severity">Gravidade:</label>
+              <select id="damage-severity" name="damage-severity" required>
+                <option value="">Selecione a gravidade</option>
+                <option value="low">Baixa - Utilizável com cuidado</option>
+                <option value="medium">Média - Parcialmente comprometido</option>
+                <option value="high">Alta - Inutilizável, risco moderado</option>
+                <option value="critical">Crítica - Colapso iminente, alto risco</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="damage-description">Descrição:</label>
+            <textarea id="damage-description" name="damage-description" rows="4" placeholder="Descreva o dano em detalhes..." required></textarea>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reporter-name">Seu Nome:</label>
+              <input type="text" id="reporter-name" name="reporter-name" placeholder="Nome completo" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="reporter-contact">Contato:</label>
+              <input type="tel" id="reporter-contact" name="reporter-contact" placeholder="Telefone para contato" required>
+            </div>
+          </div>
+          
+          <div class="form-group file-upload">
+            <label for="damage-photos">Fotos (opcional):</label>
+            <input type="file" id="damage-photos" name="damage-photos" accept="image/*" multiple>
+            <div class="file-upload-label">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span>Arraste arquivos ou clique para selecionar</span>
+            </div>
+            <div id="file-preview" class="file-preview"></div>
+          </div>
+          
+          <div class="form-group location-selector">
+            <label>Marcar no Mapa:</label>
+            <div id="location-picker-map" class="location-picker-map">
+              <!-- Mini mapa para seleção de localização -->
+            </div>
+            <p class="helper-text">Clique no mapa para marcar a localização exata ou use sua localização atual</p>
+            <button type="button" id="use-current-location" class="secondary-button">
+              <i class="fas fa-location-arrow"></i> Usar Minha Localização
+            </button>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="primary-button">Enviar Relatório</button>
+            <button type="reset" class="secondary-button">Limpar Formulário</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Route Optimization -->
+    <section id="route-optimization" class="section">
+      <div class="container">
+        <h2 class="section-title">Rotas Otimizadas</h2>
+        <p class="section-description">Encontre o caminho mais seguro entre dois pontos, evitando áreas afetadas</p>
+        
+        <div class="route-planner">
+          <div class="route-inputs">
+            <div class="form-group">
+              <label for="route-start">Ponto de Partida:</label>
+              <input type="text" id="route-start" name="route-start" placeholder="Digite o endereço inicial">
+            </div>
+            
+            <div class="form-group">
+              <label for="route-end">Destino:</label>
+              <input type="text" id="route-end" name="route-end" placeholder="Digite o endereço de destino">
+            </div>
+            
+            <div class="route-options">
+              <label>
+                <input type="radio" name="route-type" value="fastest" checked>
+                <span>Mais Rápido</span>
+              </label>
+              <label>
+                <input type="radio" name="route-type" value="safest">
+                <span>Mais Seguro</span>
+              </label>
+              <label>
+                <input type="radio" name="route-type" value="shortest">
+                <span>Mais Curto</span>
+              </label>
+            </div>
+            
+            <div class="vehicle-type">
+              <label>Tipo de Veículo:</label>
+              <div class="vehicle-options">
+                <label>
+                  <input type="radio" name="vehicle-type" value="car" checked>
+                  <i class="fas fa-car"></i>
+                </label>
+                <label>
+                  <input type="radio" name="vehicle-type" value="motorcycle">
+                  <i class="fas fa-motorcycle"></i>
+                </label>
+                <label>
+                  <input type="radio" name="vehicle-type" value="truck">
+                  <i class="fas fa-truck"></i>
+                </label>
+                <label>
+                  <input type="radio" name="vehicle-type" value="walking">
+                  <i class="fas fa-walking"></i>
+                </label>
+              </div>
+            </div>
+            
+            <button id="calculate-route" class="primary-button">Calcular Rota</button>
+          </div>
+          
+          <div id="route-map" class="route-map">
+            <!-- Mapa de rotas será carregado via JavaScript -->
+          </div>
+          
+          <div id="route-details" class="route-details">
+            <h3>Detalhes da Rota</h3>
+            <div class="route-summary">
+              <div class="summary-item">
+                <i class="fas fa-road"></i>
+                <span id="route-distance">0 km</span>
+              </div>
+              <div class="summary-item">
+                <i class="fas fa-clock"></i>
+                <span id="route-time">0 min</span>
+              </div>
+              <div class="summary-item">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="route-warnings">0 alertas</span>
+              </div>
+            </div>
+            
+            <div id="route-steps" class="route-steps">
+              <p class="no-route">Nenhuma rota calculada ainda. Preencha os campos acima e clique em "Calcular Rota".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Reports -->
+    <section id="recent-reports" class="section alt-bg">
+      <div class="container">
+        <h2 class="section-title">Relatórios Recentes</h2>
+        <p class="section-description">Últimas atualizações de danos reportados na sua região</p>
+        
+        <div class="reports-list">
+          <!-- Reports will be dynamically populated via JavaScript -->
+          <div class="report-card">
+            <div class="report-header">
+              <span class="report-type road">Estrada</span>
+              <span class="report-time">Há 2 horas</span>
+            </div>
+            <h3 class="report-title">Alagamento na Av. Paulista</h3>
+            <p class="report-description">Trecho completamente submerso próximo ao número 1500, impossibilitando passagem de veículos.</p>
+            <div class="report-footer">
+              <span class="report-severity high">Alta Gravidade</span>
+              <a href="#" class="report-details">Ver Detalhes</a>
+            </div>
+          </div>
+          
+          <div class="report-card">
+            <div class="report-header">
+              <span class="report-type bridge">Ponte</span>
+              <span class="report-time">Há 5 horas</span>
+            </div>
+            <h3 class="report-title">Estrutura comprometida na Ponte dos Remédios</h3>
+            <p class="report-description">Rachaduras visíveis na estrutura de sustentação. Tráfego restrito a veículos leves.</p>
+            <div class="report-footer">
+              <span class="report-severity critical">Gravidade Crítica</span>
+              <a href="#" class="report-details">Ver Detalhes</a>
+            </div>
+          </div>
+          
+          <div class="report-card">
+            <div class="report-header">
+              <span class="report-type power">Energia</span>
+              <span class="report-time">Há 12 horas</span>
+            </div>
+            <h3 class="report-title">Postes caídos no Jardim América</h3>
+            <p class="report-description">Três postes de energia derrubados pela força da água na Rua Augusta, entre os números 200 e 350.</p>
+            <div class="report-footer">
+              <span class="report-severity medium">Gravidade Média</span>
+              <a href="#" class="report-details">Ver Detalhes</a>
+            </div>
+          </div>
+          
+          <div class="report-card">
+            <div class="report-header">
+              <span class="report-type water">Água/Esgoto</span>
+              <span class="report-time">Há 1 dia</span>
+            </div>
+            <h3 class="report-title">Rompimento de adutora na Zona Norte</h3>
+            <p class="report-description">Vazamento significativo afetando o abastecimento em cinco bairros. Equipes de reparo a caminho.</p>
+            <div class="report-footer">
+              <span class="report-severity high">Alta Gravidade</span>
+              <a href="#" class="report-details">Ver Detalhes</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="view-more-container">
+          <button id="load-more-reports" class="secondary-button">Carregar Mais</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>Aqua<span>Core</span></h2>
+          <p>Tecnologia a serviço da prevenção e mitigação de enchentes</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3>Ferramentas</h3>
+            <ul>
+              <li><a href="infracheck.html" class="active">InfraCheck</a></li>
+              <li><a href="simflood.html">SimFlood</a></li>
+              <li><a href="lifehub.html">LifeHub</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Recursos</h3>
+            <ul>
+              <li><a href="#">Mapa de Riscos</a></li>
+              <li><a href="#">Guia de Emergências</a></li>
+              <li><a href="#">Relatórios</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Contato</h3>
+            <ul>
+              <li><a href="mailto:contato@aquacore.org">contato@aquacore.org</a></li>
+              <li><a href="tel:+5511999999999">+55 (11) 99999-9999</a></li>
+              <li>Emergência: 199 (Defesa Civil)</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-social">
+          <h3>Redes Sociais</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 AquaCore. Todos os direitos reservados.</p>
+        <div class="footer-legal">
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>

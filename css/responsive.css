@@ -1,0 +1,446 @@
+/* Responsive Styles */
+
+/* Tablet (up to 1024px) */
+@media (max-width: 1024px) {
+  /* General adjustments */
+  .container {
+    padding: 0 var(--space-5);
+  }
+  
+  /* Header */
+  #main-header .container {
+    height: 70px;
+  }
+  
+  .logo h1 {
+    font-size: var(--font-size-large);
+  }
+  
+  #main-menu {
+    gap: var(--space-3);
+  }
+  
+  /* Hero Section */
+  .hero-content h2 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .hero-content .subtitle {
+    font-size: var(--font-size-large);
+  }
+  
+  .stats-container {
+    gap: var(--space-4);
+  }
+  
+  .stat-number {
+    font-size: var(--font-size-2xl);
+  }
+  
+  /* Technologies Section */
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  
+  /* Personas Section */
+  .personas-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+  
+  /* Benefits Section */
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  
+  /* Tools Section */
+  .tools-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-6);
+  }
+  
+  .footer-logo {
+    grid-column: 1 / 2;
+  }
+  
+  .footer-links {
+    grid-column: 2 / 3;
+  }
+  
+  .footer-social {
+    grid-column: 1 / 3;
+    margin-top: var(--space-5);
+  }
+}
+
+/* Tablets and smaller laptops (up to 900px) */
+@media (max-width: 900px) {
+  /* Section padding */
+  .section {
+    padding: var(--space-8) 0;
+  }
+  
+  /* Timeline */
+  .timeline::before {
+    left: 30px;
+  }
+  
+  .timeline-item .timeline-content {
+    width: calc(100% - 60px);
+    margin-left: 60px !important;
+    text-align: left !important;
+    padding-left: var(--space-5) !important;
+    padding-right: var(--space-5) !important;
+  }
+  
+  .timeline-item .timeline-content::before {
+    left: -40px !important;
+    right: auto !important;
+  }
+  
+  /* Tools Section */
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Info Cards */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  /* InfraCheck Page */
+  .route-planner {
+    flex-direction: column;
+  }
+  
+  .route-inputs {
+    width: 100%;
+    margin-bottom: var(--space-5);
+  }
+  
+  .route-map {
+    width: 100%;
+    height: 300px;
+  }
+  
+  /* SimFlood Page */
+  .simulation-container {
+    flex-direction: column;
+  }
+  
+  .simulation-controls {
+    width: 100%;
+    margin-bottom: var(--space-5);
+  }
+  
+  .simulation-result {
+    width: 100%;
+  }
+  
+  /* LifeHub Page */
+  .matching-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .matching-filters {
+    margin-bottom: var(--space-5);
+  }
+}
+
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+  /* Typography adjustments */
+  .section-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .section-description {
+    font-size: var(--font-size-base);
+  }
+  
+  /* Header & Navigation */
+  #mobile-menu-btn {
+    display: flex;
+  }
+  
+  #main-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 100px var(--space-5) var(--space-5);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right var(--transition-normal) ease;
+    z-index: 5;
+    gap: var(--space-4);
+  }
+  
+  #main-menu.active {
+    right: 0;
+  }
+  
+  #main-menu li {
+    width: 100%;
+  }
+  
+  #main-menu li a {
+    display: block;
+    padding: var(--space-2);
+    width: 100%;
+  }
+  
+  #main-menu li.cta-btn {
+    margin-left: 0;
+    margin-top: var(--space-4);
+  }
+  
+  #main-menu li.cta-btn a {
+    text-align: center;
+  }
+  
+  /* Hero Section */
+  .hero {
+    min-height: 500px;
+    height: auto;
+    padding: 120px 0 var(--space-8);
+  }
+  
+  .hero-content h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .hero-content .subtitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .stats-container {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  /* Technologies Section */
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  
+  /* Personas Section */
+  .personas-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  
+  /* Benefits Section */
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  
+  /* Tools Section */
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .footer-links {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  
+  .footer-social {
+    grid-column: 1;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+  
+  /* Page Hero */
+  .page-hero {
+    height: auto;
+    min-height: 300px;
+    padding: 120px 0 var(--space-6);
+  }
+  
+  .page-hero .hero-content h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  /* Info Cards */
+  .info-cards {
+    margin-top: 0;
+    padding-top: var(--space-6);
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  /* InfraCheck Page */
+  .map-controls {
+    flex-direction: column;
+  }
+  
+  .filter-group {
+    width: 100%;
+    margin-bottom: var(--space-4);
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-group {
+    width: 100% !important;
+  }
+  
+  .report-card {
+    flex-direction: column;
+  }
+  
+  /* SimFlood Page */
+  .risk-controls {
+    flex-direction: column;
+  }
+  
+  .view-selector {
+    margin-top: var(--space-4);
+  }
+  
+  .tabs-content {
+    flex-direction: column;
+  }
+  
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* LifeHub Page */
+  .registration-tabs {
+    flex-direction: column;
+  }
+  
+  .tab-button {
+    width: 100%;
+    margin-bottom: var(--space-2);
+  }
+  
+  .needs-checklist {
+    grid-template-columns: 1fr;
+  }
+  
+  .time-availability {
+    overflow-x: auto;
+  }
+  
+  .needs-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-tabs {
+    flex-wrap: wrap;
+  }
+  
+  .dash-tab {
+    flex: 1;
+    min-width: calc(50% - var(--space-2));
+    margin-bottom: var(--space-2);
+  }
+  
+  .overview-metrics,
+  .volunteer-metrics,
+  .families-metrics {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .hero-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+  /* Container */
+  .container {
+    padding: 0 var(--space-4);
+  }
+  
+  /* Typography */
+  .section-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .hero-content h2 {
+    font-size: var(--font-size-xl);
+  }
+  
+  /* Step Process */
+  .step {
+    flex-direction: column;
+  }
+  
+  .step-number {
+    margin-bottom: var(--space-3);
+    margin-right: 0;
+  }
+  
+  /* Testimonials */
+  .testimonial-slide p {
+    font-size: var(--font-size-base);
+  }
+  
+  .testimonial-slide p::before,
+  .testimonial-slide p::after {
+    display: none;
+  }
+  
+  /* Forms */
+  .checkbox-group,
+  .radio-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-options {
+    flex-direction: column;
+  }
+  
+  /* Back to Top */
+  #back-to-top {
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
