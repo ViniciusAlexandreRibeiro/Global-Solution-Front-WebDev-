@@ -1235,6 +1235,97 @@ footer {
 .slideshow-btn.prev { left: 8px; }
 .slideshow-btn.next { right: 8px; }
 
+/* Modo noturno */
+body.night-mode {
+  background: #181c22 !important;
+  color: #e0e6ed !important;
+}
+body.night-mode header,
+body.night-mode footer,
+body.night-mode .section,
+body.night-mode .alt-bg {
+  background: #23272f !important;
+  color: #e0e6ed !important;
+}
+body.night-mode .cta-btn a,
+body.night-mode .quiz-menu-btn,
+body.night-mode .cta-button {
+  background: #023e8a !important;
+  color: #fff !important;
+}
+body.night-mode input,
+body.night-mode textarea,
+body.night-mode select {
+  background: #23272f !important;
+  color: #e0e6ed !important;
+  border-color: #444 !important;
+}
+
+/* Tema de alto contraste */
+body.high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+body.high-contrast header,
+body.high-contrast footer,
+body.high-contrast .section,
+body.high-contrast .alt-bg {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+body.high-contrast a,
+body.high-contrast .cta-btn a,
+body.high-contrast .quiz-menu-btn,
+body.high-contrast .cta-button {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+body.high-contrast .primary-button,
+body.high-contrast .secondary-button {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+body.high-contrast .slide,
+body.high-contrast .info-card,
+body.high-contrast .tool-card,
+body.high-contrast .benefit-card,
+body.high-contrast .persona-card {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+body.high-contrast .meter-fill {
+  background: #fff !important;
+}
+body.high-contrast .social-icons a {
+  color: #fff !important;
+}
+body.high-contrast .footer-legal a {
+  color: #fff !important;
+}
+body.high-contrast .footer-legal a:hover {
+  color: #ffd600 !important;
+}
+
+/* Corrige o botão para não ser afetado pelo filtro */
+body.high-contrast #toggle-theme-btn,
+body.high-contrast #toggle-theme-btn * {
+  filter: none !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+  will-change: unset !important;
+}
+
 /* Animações de entrada e utilitários */
 @keyframes fadeInUp {
   from {
@@ -1331,4 +1422,28 @@ footer {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* Botão flutuante para alternar modo noturno/filtro de luz azul */
+#toggle-theme-btn {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  z-index: 3000;
+  background: #0077b6;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#toggle-theme-btn:hover {
+  background: #023e8a;
 }

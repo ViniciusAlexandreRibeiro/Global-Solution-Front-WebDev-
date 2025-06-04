@@ -475,6 +475,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Botão de modo noturno/alto contraste
+document.addEventListener('DOMContentLoaded', () => {
+  const themeBtn = document.getElementById('toggle-theme-btn');
+  const themeIcon = document.getElementById('theme-icon');
+  let mode = 0; // 0: normal, 1: night, 2: high contrast
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      mode = (mode + 1) % 3;
+      document.body.classList.remove('night-mode', 'high-contrast');
+      if (mode === 1) {
+        document.body.classList.add('night-mode');
+        themeIcon.className = 'fas fa-lightbulb';
+        themeBtn.title = 'Ativar alto contraste';
+      } else if (mode === 2) {
+        document.body.classList.add('high-contrast');
+        themeIcon.className = 'fas fa-adjust';
+        themeBtn.title = 'Voltar ao modo padrão';
+      } else {
+        themeIcon.className = 'fas fa-moon';
+        themeBtn.title = 'Ativar modo noturno';
+      }
+    });
+  }
+});
+
 // Inicializa todas as funções ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
   initCounterAnimations();
