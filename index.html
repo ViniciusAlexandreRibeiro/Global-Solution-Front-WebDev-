@@ -31,6 +31,9 @@
           <li><a href="#beneficios">Benefícios</a></li>
           <li><a href="#aplicacao">Como Funciona</a></li>
           <li class="cta-btn"><a href="#ferramentas">Nossas Ferramentas</a></li>
+          <li class="cta-btn">
+            <a href="javascript:void(0);" id="quiz-btn" class="quiz-menu-btn">Quiz</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -459,6 +462,13 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
+  <!-- Modal do Quiz -->
+  <div id="quiz-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center;">
+    <div style="background:#fff;max-width:400px;width:90%;padding:2rem;border-radius:10px;position:relative;">
+      <button id="close-quiz" aria-label="Fechar Quiz" style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:1.5rem;cursor:pointer;">&times;</button>
+      <div id="quiz-content"></div>
+    </div>
+  </div>
   <script src="js/main.js"></script>
 </body>
 </html>

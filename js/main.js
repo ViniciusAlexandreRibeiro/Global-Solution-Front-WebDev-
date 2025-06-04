@@ -363,6 +363,118 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+// Quiz interativo sobre enchentes
+const quizQuestions = [
+  {
+    q: "O que é uma enchente?",
+    a: ["Acúmulo de água em áreas normalmente secas", "Falta de água em rios", "Tempestade de areia", "Deslizamento de terra"],
+    c: 0
+  },
+  {
+    q: "Qual órgão brasileiro é responsável por alertas de desastres naturais?",
+    a: ["INMET", "Defesa Civil", "IBGE", "CETESB"],
+    c: 1
+  },
+  {
+    q: "Qual destes NÃO é um risco associado a enchentes?",
+    a: ["Contaminação da água", "Desabamento de casas", "Aumento da biodiversidade", "Interrupção de energia"],
+    c: 2
+  },
+  {
+    q: "O que fazer ao receber um alerta de enchente?",
+    a: ["Ignorar", "Buscar abrigo seguro", "Ficar em casa", "Nadar na rua"],
+    c: 1
+  },
+  {
+    q: "Qual atitude ajuda a prevenir enchentes urbanas?",
+    a: ["Jogar lixo nas ruas", "Desmatar margens de rios", "Preservar áreas verdes", "Construir em áreas de risco"],
+    c: 2
+  },
+  {
+    q: "O que é um abrigo temporário?",
+    a: ["Casa de veraneio", "Local seguro para afetados", "Hotel de luxo", "Escola particular"],
+    c: 1
+  },
+  {
+    q: "Qual destes é um sinal de risco iminente de enchente?",
+    a: ["Chuva forte prolongada", "Céu limpo", "Vento fraco", "Sol forte"],
+    c: 0
+  },
+  {
+    q: "Por que não se deve atravessar áreas alagadas?",
+    a: ["Pode ser divertido", "Risco de doenças e afogamento", "Água é limpa", "Ajuda a refrescar"],
+    c: 1
+  },
+  {
+    q: "Qual destes é um recurso importante em situações de enchente?",
+    a: ["Água potável", "Fones de ouvido", "Bicicleta", "Câmera fotográfica"],
+    c: 0
+  },
+  {
+    q: "O que fazer após uma enchente?",
+    a: ["Beber água da rua", "Limpar e desinfetar objetos", "Voltar imediatamente para casa", "Ignorar recomendações"],
+    c: 1
+  }
+];
+
+function startQuiz() {
+  let current = 0;
+  let score = 0;
+  const quizModal = document.getElementById('quiz-modal');
+  const quizContent = document.getElementById('quiz-content');
+  const closeBtn = document.getElementById('close-quiz');
+
+  function showQuestion() {
+    const q = quizQuestions[current];
+    quizContent.innerHTML = `
+      <h3>Pergunta ${current + 1} de ${quizQuestions.length}</h3>
+      <p style="margin-bottom:1rem;">${q.q}</p>
+      <div>
+        ${q.a.map((alt, i) => `<button class="quiz-alt" style="display:block;width:100%;margin-bottom:8px;padding:8px;border-radius:5px;border:1px solid #0077b6;background:#f1f1f1;cursor:pointer;" data-i="${i}">${alt}</button>`).join('')}
+      </div>
+    `;
+    document.querySelectorAll('.quiz-alt').forEach(btn => {
+      btn.onclick = () => {
+        if (parseInt(btn.dataset.i) === q.c) score++;
+        current++;
+        if (current < quizQuestions.length) {
+          showQuestion();
+        } else {
+          showResult();
+        }
+      };
+    });
+  }
+
+  function showResult() {
+    quizContent.innerHTML = `
+      <h3>Resultado do Quiz</h3>
+      <p>Você acertou <strong>${score}</strong> de <strong>${quizQuestions.length}</strong> perguntas!</p>
+      <button id="restart-quiz" style="margin-top:1rem;padding:8px 16px;border-radius:5px;border:none;background:#0077b6;color:#fff;cursor:pointer;">Tentar Novamente</button>
+    `;
+    document.getElementById('restart-quiz').onclick = () => {
+      current = 0;
+      score = 0;
+      showQuestion();
+    };
+  }
+
+  quizModal.style.display = 'flex';
+  showQuestion();
+
+  closeBtn.onclick = () => {
+    quizModal.style.display = 'none';
+  };
+}
+
+// Ativa o quiz ao clicar no botão
+document.addEventListener('DOMContentLoaded', () => {
+  const quizBtn = document.getElementById('quiz-btn');
+  if (quizBtn) {
+    quizBtn.addEventListener('click', startQuiz);
+  }
+});
+
 // Inicializa todas as funções ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
   initCounterAnimations();
