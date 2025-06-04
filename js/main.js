@@ -325,6 +325,33 @@ function initFileUpload() {
   });
 }
 
+// Slideshow simples para seção problema
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.slideshow .slide');
+  const prevBtn = document.querySelector('.slideshow-btn.prev');
+  const nextBtn = document.querySelector('.slideshow-btn.next');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    setInterval(nextSlide, 5000); // Troca automática a cada 5s
+  }
+});
+
 // Inicializa todas as funções ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
   initCounterAnimations();
