@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="page-lifehub">
+  <!-- Cabeçalho com logo e navegação principal -->
   <header id="main-header">
     <div class="container">
       <div class="logo">
@@ -36,14 +37,13 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Seção de destaque do LifeHub -->
     <section class="page-hero">
       <div class="overlay"></div>
       <div class="container">
         <div class="hero-content">
           <h2>LifeHub</h2>
           <p class="subtitle">Conectando pessoas afetadas, voluntários e recursos para minimizar o impacto das enchentes</p>
-          
           <div class="hero-buttons">
             <a href="#affected" class="cta-button">Preciso de Ajuda</a>
             <a href="#volunteer" class="secondary-button">Quero Ajudar</a>
@@ -52,7 +52,7 @@
       </div>
     </section>
 
-    <!-- Info Cards -->
+    <!-- Cartões informativos com estatísticas principais -->
     <section class="info-cards">
       <div class="container">
         <div class="card-grid">
@@ -64,7 +64,6 @@
             <div class="card-count" data-count="12548">0</div>
             <p>Famílias cadastradas buscando assistência</p>
           </div>
-          
           <div class="info-card">
             <div class="card-icon">
               <i class="fas fa-hands-helping"></i>
@@ -73,7 +72,6 @@
             <div class="card-count" data-count="8725">0</div>
             <p>Pessoas cadastradas para oferecer ajuda</p>
           </div>
-          
           <div class="info-card">
             <div class="card-icon">
               <i class="fas fa-box-open"></i>
@@ -82,7 +80,6 @@
             <div class="card-count" data-count="32940">0</div>
             <p>Itens doados e entregues a famílias</p>
           </div>
-          
           <div class="info-card">
             <div class="card-icon">
               <i class="fas fa-handshake"></i>
@@ -95,24 +92,21 @@
       </div>
     </section>
 
-    <!-- Registration Section -->
+    <!-- Área de cadastro para afetados, voluntários e doadores -->
     <section id="registration" class="section">
       <div class="container">
         <h2 class="section-title">Como Podemos Ajudar Você?</h2>
         <p class="section-description">Selecione o tipo de cadastro que você precisa realizar</p>
-        
         <div class="registration-tabs">
           <button class="tab-button active" data-tab="affected" id="affected-tab">Sou Afetado</button>
           <button class="tab-button" data-tab="volunteer" id="volunteer-tab">Quero Ser Voluntário</button>
           <button class="tab-button" data-tab="donor" id="donor-tab">Quero Doar</button>
         </div>
-        
         <div class="tab-content">
-          <!-- Affected Family Registration Form -->
+          <!-- Formulário para famílias afetadas -->
           <div id="affected" class="tab-pane active">
             <h3>Cadastro de Família Afetada</h3>
             <p class="tab-description">Forneça informações sobre sua situação para que possamos conectá-lo com os recursos apropriados</p>
-            
             <form id="affected-form" class="registration-form">
               <div class="form-section">
                 <h4>Informações do Responsável</h4>
@@ -121,26 +115,22 @@
                     <label for="affected-name">Nome Completo:</label>
                     <input type="text" id="affected-name" name="affected-name" required>
                   </div>
-                  
                   <div class="form-group">
                     <label for="affected-cpf">CPF:</label>
                     <input type="text" id="affected-cpf" name="affected-cpf" placeholder="000.000.000-00" required>
                   </div>
                 </div>
-                
                 <div class="form-row">
                   <div class="form-group">
                     <label for="affected-phone">Telefone:</label>
                     <input type="tel" id="affected-phone" name="affected-phone" placeholder="(00) 00000-0000" required>
                   </div>
-                  
                   <div class="form-group">
                     <label for="affected-email">E-mail (opcional):</label>
                     <input type="email" id="affected-email" name="affected-email">
                   </div>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Informações da Família</h4>
                 <div class="form-row">
@@ -148,31 +138,26 @@
                     <label for="family-members">Número de Pessoas:</label>
                     <input type="number" id="family-members" name="family-members" min="1" max="20" required>
                   </div>
-                  
                   <div class="form-group">
                     <label for="children-count">Crianças (menores de 12 anos):</label>
                     <input type="number" id="children-count" name="children-count" min="0" max="15">
                   </div>
                 </div>
-                
                 <div class="form-row">
                   <div class="form-group">
                     <label for="elderly-count">Idosos (acima de 60 anos):</label>
                     <input type="number" id="elderly-count" name="elderly-count" min="0" max="10">
                   </div>
-                  
                   <div class="form-group">
                     <label for="special-needs">Pessoas com Necessidades Especiais:</label>
                     <input type="number" id="special-needs" name="special-needs" min="0" max="10">
                   </div>
                 </div>
-                
                 <div class="form-group">
                   <label>Necessidades Especiais (especifique):</label>
                   <textarea id="special-needs-details" name="special-needs-details" rows="2"></textarea>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Localização e Situação</h4>
                 <div class="form-row">
@@ -180,13 +165,11 @@
                     <label for="affected-address">Endereço Residencial:</label>
                     <input type="text" id="affected-address" name="affected-address" required>
                   </div>
-                  
                   <div class="form-group">
                     <label for="affected-city">Cidade:</label>
                     <input type="text" id="affected-city" name="affected-city" required>
                   </div>
                 </div>
-                
                 <div class="form-row">
                   <div class="form-group">
                     <label for="affected-state">Estado:</label>
@@ -221,18 +204,15 @@
                       <option value="TO">Tocantins</option>
                     </select>
                   </div>
-                  
                   <div class="form-group">
                     <label for="affected-cep">CEP:</label>
                     <input type="text" id="affected-cep" name="affected-cep" placeholder="00000-000" required>
                   </div>
                 </div>
-                
                 <div class="form-group">
                   <label for="current-location">Localização Atual (se diferente da residência):</label>
                   <input type="text" id="current-location" name="current-location">
                 </div>
-                
                 <div class="form-group">
                   <label for="housing-status">Situação da Moradia:</label>
                   <select id="housing-status" name="housing-status" required>
@@ -244,13 +224,11 @@
                     <option value="shelter">Em Abrigo Público</option>
                   </select>
                 </div>
-                
                 <div class="form-group">
                   <label for="damage-description">Descrição dos Danos:</label>
                   <textarea id="damage-description" name="damage-description" rows="3" required></textarea>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Necessidades</h4>
                 <div class="needs-checklist">
@@ -279,7 +257,6 @@
                       </label>
                     </div>
                   </div>
-                  
                   <div class="need-category">
                     <h5>Saúde</h5>
                     <div class="checkbox-group">
@@ -301,7 +278,6 @@
                       </label>
                     </div>
                   </div>
-                  
                   <div class="need-category">
                     <h5>Abrigo e Serviços</h5>
                     <div class="checkbox-group">
@@ -328,12 +304,10 @@
                     </div>
                   </div>
                 </div>
-                
                 <div class="form-group">
                   <label for="other-needs">Outras Necessidades (especifique):</label>
                   <textarea id="other-needs" name="other-needs" rows="3"></textarea>
                 </div>
-                
                 <div class="form-group">
                   <label for="urgency-level">Nível de Urgência:</label>
                   <select id="urgency-level" name="urgency-level" required>
@@ -345,7 +319,6 @@
                   </select>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Termos e Condições</h4>
                 <div class="checkbox-group">
@@ -359,19 +332,16 @@
                   </label>
                 </div>
               </div>
-              
               <div class="form-actions">
                 <button type="submit" class="primary-button">Enviar Cadastro</button>
                 <button type="reset" class="secondary-button">Limpar Formulário</button>
               </div>
             </form>
           </div>
-          
-          <!-- Volunteer Registration Form -->
+          <!-- Formulário para voluntários -->
           <div id="volunteer" class="tab-pane">
             <h3>Cadastro de Voluntário</h3>
             <p class="tab-description">Registre-se para oferecer seu tempo e habilidades para ajudar pessoas afetadas por enchentes</p>
-            
             <form id="volunteer-form" class="registration-form">
               <div class="form-section">
                 <h4>Informações Pessoais</h4>
@@ -380,38 +350,32 @@
                     <label for="volunteer-name">Nome Completo:</label>
                     <input type="text" id="volunteer-name" name="volunteer-name" required>
                   </div>
-                  
                   <div class="form-group">
                     <label for="volunteer-cpf">CPF:</label>
                     <input type="text" id="volunteer-cpf" name="volunteer-cpf" placeholder="000.000.000-00" required>
                   </div>
                 </div>
-                
                 <div class="form-row">
                   <div class="form-group">
                     <label for="volunteer-phone">Telefone:</label>
                     <input type="tel" id="volunteer-phone" name="volunteer-phone" placeholder="(00) 00000-0000" required>
                   </div>
-                  
                   <div class="form-group">
                     <label for="volunteer-email">E-mail:</label>
                     <input type="email" id="volunteer-email" name="volunteer-email" required>
                   </div>
                 </div>
-                
                 <div class="form-row">
                   <div class="form-group">
                     <label for="volunteer-birthdate">Data de Nascimento:</label>
                     <input type="date" id="volunteer-birthdate" name="volunteer-birthdate" required>
                   </div>
-                  
                   <div class="form-group">
                     <label for="volunteer-profession">Profissão:</label>
                     <input type="text" id="volunteer-profession" name="volunteer-profession">
                   </div>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Localização</h4>
                 <div class="form-row">
@@ -419,13 +383,11 @@
                     <label for="volunteer-address">Endereço:</label>
                     <input type="text" id="volunteer-address" name="volunteer-address" required>
                   </div>
-                  
                   <div class="form-group">
                     <label for="volunteer-city">Cidade:</label>
                     <input type="text" id="volunteer-city" name="volunteer-city" required>
                   </div>
                 </div>
-                
                 <div class="form-row">
                   <div class="form-group">
                     <label for="volunteer-state">Estado:</label>
@@ -460,13 +422,11 @@
                       <option value="TO">Tocantins</option>
                     </select>
                   </div>
-                  
                   <div class="form-group">
                     <label for="volunteer-cep">CEP:</label>
                     <input type="text" id="volunteer-cep" name="volunteer-cep" placeholder="00000-000" required>
                   </div>
                 </div>
-                
                 <div class="form-group">
                   <label for="volunteer-travel">Disponibilidade para Deslocamento:</label>
                   <select id="volunteer-travel" name="volunteer-travel" required>
@@ -478,7 +438,6 @@
                   </select>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Habilidades e Disponibilidade</h4>
                 <div class="form-group">
@@ -534,22 +493,18 @@
                     </label>
                   </div>
                 </div>
-                
                 <div class="form-group">
                   <label for="other-skills">Outras Habilidades:</label>
                   <textarea id="other-skills" name="other-skills" rows="2"></textarea>
                 </div>
-                
                 <div class="form-group">
                   <label for="languages">Idiomas Falados:</label>
                   <input type="text" id="languages" name="languages" placeholder="Ex: Português, Inglês, Espanhol">
                 </div>
-                
                 <div class="form-group">
                   <label for="certifications">Certificações Relevantes:</label>
                   <textarea id="certifications" name="certifications" rows="2" placeholder="Ex: Primeiros Socorros, Bombeiro Civil, etc."></textarea>
                 </div>
-                
                 <div class="form-group">
                   <label>Disponibilidade de Tempo:</label>
                   <div class="time-availability">
@@ -645,7 +600,6 @@
                     </div>
                   </div>
                 </div>
-                
                 <div class="form-group">
                   <label for="emergency-availability">Disponibilidade para Emergências:</label>
                   <select id="emergency-availability" name="emergency-availability" required>
@@ -656,25 +610,21 @@
                   </select>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Experiência e Verificação</h4>
                 <div class="form-group">
                   <label for="volunteer-experience">Experiência Prévia:</label>
                   <textarea id="volunteer-experience" name="volunteer-experience" rows="3" placeholder="Descreva suas experiências anteriores como voluntário, especialmente em situações de emergência."></textarea>
                 </div>
-                
                 <div class="form-group">
                   <label for="references">Referências (opcional):</label>
                   <textarea id="references" name="references" rows="2" placeholder="Nome, relação e contato de pessoas que possam atestar sua experiência."></textarea>
                 </div>
-                
                 <div class="form-group">
                   <label for="volunteer-motivation">Motivação:</label>
                   <textarea id="volunteer-motivation" name="volunteer-motivation" rows="3" placeholder="Por que você deseja ser voluntário?" required></textarea>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Termos e Condições</h4>
                 <div class="checkbox-group">
@@ -692,19 +642,16 @@
                   </label>
                 </div>
               </div>
-              
               <div class="form-actions">
                 <button type="submit" class="primary-button">Enviar Cadastro</button>
                 <button type="reset" class="secondary-button">Limpar Formulário</button>
               </div>
             </form>
           </div>
-          
-          <!-- Donor Registration Form -->
+          <!-- Formulário para doadores -->
           <div id="donor" class="tab-pane">
             <h3>Cadastro de Doador</h3>
             <p class="tab-description">Registre-se para doar recursos e acompanhar o impacto de suas contribuições</p>
-            
             <form id="donor-form" class="registration-form">
               <div class="form-section">
                 <h4>Informações do Doador</h4>
@@ -722,48 +669,41 @@
                     <span>Anônimo</span>
                   </label>
                 </div>
-                
                 <div id="individual-fields">
                   <div class="form-row">
                     <div class="form-group">
                       <label for="donor-name">Nome Completo:</label>
                       <input type="text" id="donor-name" name="donor-name">
                     </div>
-                    
                     <div class="form-group">
                       <label for="donor-cpf">CPF:</label>
                       <input type="text" id="donor-cpf" name="donor-cpf" placeholder="000.000.000-00">
                     </div>
                   </div>
                 </div>
-                
                 <div id="company-fields" style="display: none;">
                   <div class="form-row">
                     <div class="form-group">
                       <label for="company-name">Nome da Empresa:</label>
                       <input type="text" id="company-name" name="company-name">
                     </div>
-                    
                     <div class="form-group">
                       <label for="company-cnpj">CNPJ:</label>
                       <input type="text" id="company-cnpj" name="company-cnpj" placeholder="00.000.000/0000-00">
                     </div>
                   </div>
                 </div>
-                
                 <div class="form-row">
                   <div class="form-group">
                     <label for="donor-phone">Telefone:</label>
                     <input type="tel" id="donor-phone" name="donor-phone" placeholder="(00) 00000-0000">
                   </div>
-                  
                   <div class="form-group">
                     <label for="donor-email">E-mail:</label>
                     <input type="email" id="donor-email" name="donor-email">
                   </div>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Tipo de Doação</h4>
                 <div class="donation-type-selector">
@@ -780,7 +720,6 @@
                     <span>Serviços</span>
                   </button>
                 </div>
-                
                 <div id="items-donation" class="donation-details">
                   <div class="form-group">
                     <label>Categorias de Itens:</label>
@@ -835,12 +774,10 @@
                       </label>
                     </div>
                   </div>
-                  
                   <div class="form-group">
                     <label for="items-description">Descrição dos Itens:</label>
                     <textarea id="items-description" name="items-description" rows="3" placeholder="Descreva em detalhes os itens que você deseja doar, incluindo quantidades e condições."></textarea>
                   </div>
-                  
                   <div class="form-row">
                     <div class="form-group">
                       <label for="items-condition">Condição dos Itens:</label>
@@ -852,14 +789,12 @@
                         <option value="mixed">Condições variadas</option>
                       </select>
                     </div>
-                    
                     <div class="form-group">
                       <label for="estimated-value">Valor Estimado (opcional):</label>
                       <input type="text" id="estimated-value" name="estimated-value" placeholder="R$">
                     </div>
                   </div>
                 </div>
-                
                 <div id="money-donation" class="donation-details" style="display: none;">
                   <div class="form-row">
                     <div class="form-group">
@@ -869,7 +804,6 @@
                         <input type="text" id="donation-amount" name="donation-amount" placeholder="0,00">
                       </div>
                     </div>
-                    
                     <div class="form-group">
                       <label for="donation-frequency">Frequência:</label>
                       <select id="donation-frequency" name="donation-frequency">
@@ -880,7 +814,6 @@
                       </select>
                     </div>
                   </div>
-                  
                   <div class="form-group">
                     <label>Método de Pagamento:</label>
                     <div class="payment-methods">
@@ -902,7 +835,6 @@
                       </label>
                     </div>
                   </div>
-                  
                   <div class="form-group">
                     <label for="donation-allocation">Destinação da Doação (opcional):</label>
                     <select id="donation-allocation" name="donation-allocation">
@@ -915,7 +847,6 @@
                     </select>
                   </div>
                 </div>
-                
                 <div id="services-donation" class="donation-details" style="display: none;">
                   <div class="form-group">
                     <label for="service-type">Tipo de Serviço:</label>
@@ -931,18 +862,15 @@
                       <option value="other">Outro</option>
                     </select>
                   </div>
-                  
                   <div class="form-group">
                     <label for="service-description">Descrição do Serviço:</label>
                     <textarea id="service-description" name="service-description" rows="3" placeholder="Descreva em detalhes o serviço que você pode oferecer, incluindo capacidade, duração e limitações."></textarea>
                   </div>
-                  
                   <div class="form-row">
                     <div class="form-group">
                       <label for="service-start">Disponível a partir de:</label>
                       <input type="date" id="service-start" name="service-start">
                     </div>
-                    
                     <div class="form-group">
                       <label for="service-duration">Duração Estimada:</label>
                       <select id="service-duration" name="service-duration">
@@ -956,7 +884,6 @@
                   </div>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Logística</h4>
                 <div class="form-group">
@@ -976,20 +903,17 @@
                     </label>
                   </div>
                 </div>
-                
                 <div id="pickup-details" style="display: none;">
                   <div class="form-row">
                     <div class="form-group">
                       <label for="pickup-address">Endereço para Coleta:</label>
                       <input type="text" id="pickup-address" name="pickup-address">
                     </div>
-                    
                     <div class="form-group">
                       <label for="pickup-date">Data Preferencial:</label>
                       <input type="date" id="pickup-date" name="pickup-date">
                     </div>
                   </div>
-                  
                   <div class="form-row">
                     <div class="form-group">
                       <label for="pickup-time">Horário Preferencial:</label>
@@ -999,14 +923,12 @@
                         <option value="evening">Noite (19h-21h)</option>
                       </select>
                     </div>
-                    
                     <div class="form-group">
                       <label for="pickup-notes">Observações para Coleta:</label>
                       <input type="text" id="pickup-notes" name="pickup-notes" placeholder="Ex: Interfone, referências, etc.">
                     </div>
                   </div>
                 </div>
-                
                 <div class="form-group">
                   <label for="geographic-preference">Preferência Geográfica (opcional):</label>
                   <select id="geographic-preference" name="geographic-preference">
@@ -1016,7 +938,6 @@
                     <option value="specific">Região específica</option>
                   </select>
                 </div>
-                
                 <div id="specific-region" style="display: none;">
                   <div class="form-group">
                     <label for="specific-location">Especifique a Região:</label>
@@ -1024,7 +945,6 @@
                   </div>
                 </div>
               </div>
-              
               <div class="form-section">
                 <h4>Termos e Condições</h4>
                 <div class="checkbox-group">
@@ -1042,7 +962,6 @@
                   </label>
                 </div>
               </div>
-              
               <div class="form-actions">
                 <button type="submit" class="primary-button">Finalizar Doação</button>
                 <button type="reset" class="secondary-button">Limpar Formulário</button>
@@ -1053,12 +972,11 @@
       </div>
     </section>
 
-    <!-- Resource Matching -->
+    <!-- Seção de matching de necessidades e recursos -->
     <section id="resource-matching" class="section alt-bg">
       <div class="container">
         <h2 class="section-title">Sistema de Matching</h2>
         <p class="section-description">Veja as necessidades atuais e como você pode ajudar diretamente</p>
-        
         <div class="matching-grid">
           <div class="matching-filters">
             <div class="filter-section">
@@ -1100,7 +1018,6 @@
                   </label>
                 </div>
               </div>
-              
               <div class="filter-group">
                 <h4>Localização</h4>
                 <select id="location-filter">
@@ -1112,7 +1029,6 @@
                   <option value="south">Região Sul</option>
                 </select>
               </div>
-              
               <div class="filter-group">
                 <h4>Urgência</h4>
                 <div class="radio-group">
@@ -1135,16 +1051,13 @@
                 </div>
               </div>
             </div>
-            
             <button id="apply-filters" class="primary-button">Aplicar Filtros</button>
           </div>
-          
           <div class="matching-results">
             <div class="results-header">
               <h3>Necessidades Atuais</h3>
               <div class="results-count">Mostrando <span id="shown-count">6</span> de <span id="total-count">124</span> necessidades</div>
             </div>
-            
             <div class="needs-list">
               <div class="need-card">
                 <div class="need-header">
@@ -1161,7 +1074,6 @@
                   <button class="help-button">Quero Ajudar</button>
                 </div>
               </div>
-              
               <div class="need-card">
                 <div class="need-header">
                   <span class="need-type hygiene">Higiene</span>
@@ -1177,7 +1089,6 @@
                   <button class="help-button">Quero Ajudar</button>
                 </div>
               </div>
-              
               <div class="need-card">
                 <div class="need-header">
                   <span class="need-type medical">Médico</span>
@@ -1193,7 +1104,6 @@
                   <button class="help-button">Quero Ajudar</button>
                 </div>
               </div>
-              
               <div class="need-card">
                 <div class="need-header">
                   <span class="need-type transport">Transporte</span>
@@ -1209,7 +1119,6 @@
                   <button class="help-button">Quero Ajudar</button>
                 </div>
               </div>
-              
               <div class="need-card">
                 <div class="need-header">
                   <span class="need-type clothing">Roupas</span>
@@ -1225,7 +1134,6 @@
                   <button class="help-button">Quero Ajudar</button>
                 </div>
               </div>
-              
               <div class="need-card">
                 <div class="need-header">
                   <span class="need-type cleanup">Limpeza</span>
@@ -1242,7 +1150,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="pagination">
               <button class="pagination-btn active">1</button>
               <button class="pagination-btn">2</button>
@@ -1256,19 +1163,17 @@
       </div>
     </section>
 
-    <!-- Dashboard Section -->
+    <!-- Painel de acompanhamento e métricas -->
     <section id="dashboard" class="section">
       <div class="container">
         <h2 class="section-title">Dashboard de Acompanhamento</h2>
         <p class="section-description">Acompanhe o progresso das ações e o impacto das doações</p>
-        
         <div class="dashboard-tabs">
           <button class="dash-tab active" data-tab="overview">Visão Geral</button>
           <button class="dash-tab" data-tab="donations">Doações</button>
           <button class="dash-tab" data-tab="volunteers">Voluntários</button>
           <button class="dash-tab" data-tab="families">Famílias</button>
         </div>
-        
         <div class="dashboard-content">
           <div id="overview-tab" class="dash-pane active">
             <div class="overview-metrics">
@@ -1280,7 +1185,6 @@
                   <span>12% nesta semana</span>
                 </div>
               </div>
-              
               <div class="metric-card">
                 <div class="metric-title">Doações Recebidas</div>
                 <div class="metric-value">R$ 1.24M</div>
@@ -1289,7 +1193,6 @@
                   <span>23% neste mês</span>
                 </div>
               </div>
-              
               <div class="metric-card">
                 <div class="metric-title">Voluntários Ativos</div>
                 <div class="metric-value">3,218</div>
@@ -1298,7 +1201,6 @@
                   <span>5% nesta semana</span>
                 </div>
               </div>
-              
               <div class="metric-card">
                 <div class="metric-title">Índice de Recuperação</div>
                 <div class="metric-value">68%</div>
@@ -1308,7 +1210,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="chart-container">
               <h3>Evolução do Atendimento</h3>
               <div class="chart-placeholder">
@@ -1316,7 +1217,6 @@
                 <p>Gráfico de evolução será exibido aqui</p>
               </div>
             </div>
-            
             <div class="recent-activity">
               <h3>Atividades Recentes</h3>
               <div class="activity-list">
@@ -1330,7 +1230,6 @@
                     <div class="activity-time">Há 2 horas</div>
                   </div>
                 </div>
-                
                 <div class="activity-item">
                   <div class="activity-icon volunteer">
                     <i class="fas fa-hands-helping"></i>
@@ -1341,7 +1240,6 @@
                     <div class="activity-time">Há 5 horas</div>
                   </div>
                 </div>
-                
                 <div class="activity-item">
                   <div class="activity-icon family">
                     <i class="fas fa-home"></i>
@@ -1352,7 +1250,6 @@
                     <div class="activity-time">Há 1 dia</div>
                   </div>
                 </div>
-                
                 <div class="activity-item">
                   <div class="activity-icon distribution">
                     <i class="fas fa-truck"></i>
@@ -1366,7 +1263,6 @@
               </div>
             </div>
           </div>
-          
           <div id="donations-tab" class="dash-pane">
             <div class="donations-stats">
               <div class="stats-group">
@@ -1376,7 +1272,6 @@
                   <p>Gráfico de distribuição será exibido aqui</p>
                 </div>
               </div>
-              
               <div class="stats-group">
                 <h3>Distribuição por Região</h3>
                 <div class="chart-placeholder">
@@ -1385,7 +1280,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="top-donors">
               <h3>Principais Doadores</h3>
               <div class="donors-list">
@@ -1396,7 +1290,6 @@
                     <div class="donor-contribution">Alimentos: 1.250 cestas básicas</div>
                   </div>
                 </div>
-                
                 <div class="donor-item">
                   <div class="donor-rank">2</div>
                   <div class="donor-info">
@@ -1404,7 +1297,6 @@
                     <div class="donor-contribution">Dinheiro: R$ 250.000,00</div>
                   </div>
                 </div>
-                
                 <div class="donor-item">
                   <div class="donor-rank">3</div>
                   <div class="donor-info">
@@ -1414,7 +1306,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="donation-allocation">
               <h3>Alocação de Recursos</h3>
               <div class="allocation-chart">
@@ -1425,7 +1316,6 @@
                   </div>
                   <div class="allocation-percentage">35%</div>
                 </div>
-                
                 <div class="allocation-item">
                   <div class="allocation-label">Abrigo</div>
                   <div class="allocation-bar">
@@ -1433,7 +1323,6 @@
                   </div>
                   <div class="allocation-percentage">25%</div>
                 </div>
-                
                 <div class="allocation-item">
                   <div class="allocation-label">Saúde</div>
                   <div class="allocation-bar">
@@ -1441,7 +1330,6 @@
                   </div>
                   <div class="allocation-percentage">20%</div>
                 </div>
-                
                 <div class="allocation-item">
                   <div class="allocation-label">Logística</div>
                   <div class="allocation-bar">
@@ -1449,7 +1337,6 @@
                   </div>
                   <div class="allocation-percentage">12%</div>
                 </div>
-                
                 <div class="allocation-item">
                   <div class="allocation-label">Outros</div>
                   <div class="allocation-bar">
@@ -1460,7 +1347,6 @@
               </div>
             </div>
           </div>
-          
           <div id="volunteers-tab" class="dash-pane">
             <div class="volunteer-metrics">
               <div class="volunteer-card">
@@ -1468,26 +1354,22 @@
                 <div class="volunteer-value">24,853</div>
                 <div class="volunteer-description">Total de horas de trabalho voluntário</div>
               </div>
-              
               <div class="volunteer-card">
                 <div class="volunteer-title">Voluntários Ativos</div>
                 <div class="volunteer-value">3,218</div>
                 <div class="volunteer-description">Pessoas atuando ativamente</div>
               </div>
-              
               <div class="volunteer-card">
                 <div class="volunteer-title">Média de Horas</div>
                 <div class="volunteer-value">7.8</div>
                 <div class="volunteer-description">Horas médias por voluntário/semana</div>
               </div>
-              
               <div class="volunteer-card">
                 <div class="volunteer-title">Taxa de Retenção</div>
                 <div class="volunteer-value">82%</div>
                 <div class="volunteer-description">Voluntários que permanecem ativos</div>
               </div>
             </div>
-            
             <div class="volunteer-skills">
               <h3>Habilidades Disponíveis</h3>
               <div class="skills-chart">
@@ -1498,7 +1380,6 @@
                   </div>
                   <div class="skill-count">623 voluntários</div>
                 </div>
-                
                 <div class="skill-bar">
                   <div class="skill-label">Assistência Médica</div>
                   <div class="skill-progress">
@@ -1506,7 +1387,6 @@
                   </div>
                   <div class="skill-count">309 voluntários</div>
                 </div>
-                
                 <div class="skill-bar">
                   <div class="skill-label">Construção</div>
                   <div class="skill-progress">
@@ -1514,7 +1394,6 @@
                   </div>
                   <div class="skill-count">478 voluntários</div>
                 </div>
-                
                 <div class="skill-bar">
                   <div class="skill-label">Cozinha</div>
                   <div class="skill-progress">
@@ -1522,7 +1401,6 @@
                   </div>
                   <div class="skill-count">514 voluntários</div>
                 </div>
-                
                 <div class="skill-bar">
                   <div class="skill-label">Apoio Psicológico</div>
                   <div class="skill-progress">
@@ -1532,7 +1410,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="volunteer-distribution">
               <h3>Distribuição Geográfica</h3>
               <div class="map-placeholder">
@@ -1541,7 +1418,6 @@
               </div>
             </div>
           </div>
-          
           <div id="families-tab" class="dash-pane">
             <div class="families-metrics">
               <div class="family-card">
@@ -1552,7 +1428,6 @@
                   <span>237 novas esta semana</span>
                 </div>
               </div>
-              
               <div class="family-card">
                 <div class="family-title">Pessoas Atendidas</div>
                 <div class="family-value">42,862</div>
@@ -1561,7 +1436,6 @@
                   <span>815 novas esta semana</span>
                 </div>
               </div>
-              
               <div class="family-card">
                 <div class="family-title">Crianças Atendidas</div>
                 <div class="family-value">13,742</div>
@@ -1570,7 +1444,6 @@
                   <span>254 novas esta semana</span>
                 </div>
               </div>
-              
               <div class="family-card">
                 <div class="family-title">Idosos Atendidos</div>
                 <div class="family-value">8,124</div>
@@ -1580,7 +1453,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="need-distribution">
               <h3>Principais Necessidades</h3>
               <div class="need-chart">
@@ -1595,7 +1467,6 @@
                     <span class="need-count">11,542 famílias</span>
                   </div>
                 </div>
-                
                 <div class="need-bar">
                   <div class="need-label">Água Potável</div>
                   <div class="need-progress">
@@ -1607,7 +1478,6 @@
                     <span class="need-count">10,665 famílias</span>
                   </div>
                 </div>
-                
                 <div class="need-bar">
                   <div class="need-label">Abrigo</div>
                   <div class="need-progress">
@@ -1619,7 +1489,6 @@
                     <span class="need-count">8,156 famílias</span>
                   </div>
                 </div>
-                
                 <div class="need-bar">
                   <div class="need-label">Medicamentos</div>
                   <div class="need-progress">
@@ -1631,7 +1500,6 @@
                     <span class="need-count">6,901 famílias</span>
                   </div>
                 </div>
-                
                 <div class="need-bar">
                   <div class="need-label">Transporte</div>
                   <div class="need-progress">
@@ -1645,7 +1513,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="family-status">
               <h3>Status das Famílias</h3>
               <div class="status-chart">
@@ -1679,6 +1546,7 @@
     </section>
   </main>
 
+  <!-- Rodapé com informações institucionais e contatos -->
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -1686,7 +1554,6 @@
           <h2>Aqua<span>Core</span></h2>
           <p>Tecnologia a serviço da prevenção e mitigação de enchentes</p>
         </div>
-        
         <div class="footer-links">
           <div class="footer-column">
             <h3>Ferramentas</h3>
@@ -1696,7 +1563,6 @@
               <li><a href="lifehub.html" class="active">LifeHub</a></li>
             </ul>
           </div>
-          
           <div class="footer-column">
             <h3>Recursos</h3>
             <ul>
@@ -1705,9 +1571,8 @@
               <li><a href="#">Relatórios</a></li>
             </ul>
           </div>
-          
           <div class="footer-column">
-            <h3>Contato</h3>
+                       <h3>Contato</h3>
             <ul>
               <li><a href="mailto:contato@aquacore.org">contato@aquacore.org</a></li>
               <li><a href="tel:+5511999999999">+55 (11) 99999-9999</a></li>
@@ -1715,7 +1580,6 @@
             </ul>
           </div>
         </div>
-        
         <div class="footer-social">
           <h3>Redes Sociais</h3>
           <div class="social-icons">
@@ -1726,7 +1590,6 @@
           </div>
         </div>
       </div>
-      
       <div class="footer-bottom">
         <p>&copy; 2025 AquaCore. Todos os direitos reservados.</p>
         <div class="footer-legal">
@@ -1737,6 +1600,7 @@
     </div>
   </footer>
 
+  <!-- Botão para voltar ao topo da página -->
   <button id="back-to-top" aria-label="Voltar ao topo">
     <i class="fas fa-arrow-up"></i>
   </button>

@@ -1,24 +1,23 @@
-/* SimFlood Specific Styles */
+/* Variáveis e estilos específicos para SimFlood */
 
-/* Page Specific Variables */
 :root {
+  /* Cores para níveis de risco e alertas */
   --color-risk-very-low: #C8E6C9;
   --color-risk-low: #A5D6A7;
   --color-risk-medium: #FFF59D;
   --color-risk-high: #FFCC80;
   --color-risk-very-high: #EF9A9A;
-  
   --color-alert-moderate: #FFC107;
   --color-alert-high: #FF9800;
   --color-alert-extreme: #F44336;
 }
 
-/* Background for SimFlood */
+/* Imagem de fundo para a página SimFlood */
 .page-simflood .page-hero {
   background-image: url('https://images.pexels.com/photos/1446076/pexels-photo-1446076.jpeg');
 }
 
-/* Risk Map Section */
+/* Área de controles do mapa de risco */
 .risk-controls {
   display: flex;
   justify-content: space-between;
@@ -26,10 +25,12 @@
   margin-bottom: var(--space-5);
 }
 
+/* Seletor de localização do mapa de risco */
 .location-selector {
   width: 40%;
 }
 
+/* Campo de busca de localização */
 .location-input {
   display: flex;
   gap: var(--space-2);
@@ -59,6 +60,7 @@
   background-color: var(--color-primary-700);
 }
 
+/* Seletor de visualização do mapa */
 .view-selector {
   width: 50%;
 }
@@ -85,6 +87,7 @@
   margin-right: var(--space-2);
 }
 
+/* Legenda de cores do mapa de risco */
 .risk-legend {
   display: flex;
   flex-wrap: wrap;
@@ -142,12 +145,13 @@
   background-color: var(--color-risk-very-high);
 }
 
-/* Simulation Tool Section */
+/* Área principal da ferramenta de simulação */
 .simulation-container {
   display: flex;
   gap: var(--space-6);
 }
 
+/* Painel de controles da simulação */
 .simulation-controls {
   width: 35%;
   background-color: white;
@@ -156,6 +160,7 @@
   padding: var(--space-5);
 }
 
+/* Slider de parâmetros da simulação */
 .range-slider {
   position: relative;
   margin-top: var(--space-2);
@@ -164,6 +169,7 @@
 .range-slider input[type="range"] {
   width: 100%;
   -webkit-appearance: none;
+  appearance: none;
   height: 6px;
   background: var(--color-neutral-300);
   border-radius: var(--border-radius-full);
@@ -172,6 +178,7 @@
 
 .range-slider input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   width: 18px;
   height: 18px;
   background: var(--color-primary-600);
@@ -192,6 +199,7 @@
   color: var(--color-neutral-600);
 }
 
+/* Opções de seleção por radio */
 .radio-options {
   display: flex;
   flex-wrap: wrap;
@@ -209,6 +217,7 @@
   margin-right: var(--space-2);
 }
 
+/* Opções avançadas da simulação */
 .advanced-options {
   margin-top: var(--space-5);
 }
@@ -251,6 +260,7 @@
   display: block;
 }
 
+/* Botões de ação da simulação */
 .simulation-actions {
   margin-top: var(--space-5);
   display: flex;
@@ -258,6 +268,7 @@
   gap: var(--space-2);
 }
 
+/* Área de exibição dos resultados da simulação */
 .simulation-result {
   flex: 1;
   background-color: white;
@@ -266,6 +277,7 @@
   overflow: hidden;
 }
 
+/* Abas de resultados da simulação */
 .result-tabs {
   display: flex;
   border-bottom: 1px solid var(--color-neutral-300);
@@ -319,6 +331,7 @@
   display: block;
 }
 
+/* Mapa da simulação */
 #simulation-map {
   height: 350px;
   background-color: var(--color-neutral-100);
@@ -341,6 +354,7 @@
   margin-bottom: var(--space-3);
 }
 
+/* Controles de visualização da simulação */
 .visualization-controls {
   margin-top: var(--space-4);
 }
@@ -363,6 +377,7 @@
   color: var(--color-neutral-600);
 }
 
+/* Controles de reprodução da simulação */
 .playback-controls {
   display: flex;
   justify-content: center;
@@ -391,6 +406,7 @@
   cursor: not-allowed;
 }
 
+/* Resumo dos dados da simulação */
 .data-summary {
   margin-bottom: var(--space-5);
 }
@@ -428,6 +444,7 @@
   color: var(--color-primary-700);
 }
 
+/* Gráficos de dados da simulação */
 .data-charts {
   display: flex;
   gap: var(--space-4);
@@ -461,6 +478,7 @@
   margin-bottom: var(--space-2);
 }
 
+/* Linha do tempo da simulação */
 .timeline-container h3 {
   font-size: var(--font-size-medium);
   font-weight: 600;
@@ -484,7 +502,7 @@
   margin-bottom: var(--space-2);
 }
 
-/* Historical Data Section */
+/* Área de dados históricos */
 .historical-controls {
   display: flex;
   flex-wrap: wrap;
@@ -513,6 +531,7 @@
   padding: var(--space-2);
 }
 
+/* Abas de resultados históricos */
 .results-tabs {
   display: flex;
   background-color: white;
@@ -561,12 +580,14 @@
   display: block;
 }
 
+/* Mapa de eventos históricos */
 #historical-map {
   height: 400px;
   background-color: var(--color-neutral-100);
   border-radius: var(--border-radius-md);
 }
 
+/* Lista de eventos históricos */
 .event-list {
   max-height: 400px;
   overflow-y: auto;
@@ -620,6 +641,7 @@
   color: var(--color-neutral-600);
 }
 
+/* Seletor de gráficos históricos */
 .chart-selectors {
   display: flex;
   gap: var(--space-4);
@@ -637,12 +659,13 @@
   border-radius: var(--border-radius-md);
 }
 
-/* Early Warning System */
+/* Sistema de alerta antecipado */
 .alert-system {
   display: flex;
   gap: var(--space-6);
 }
 
+/* Painel de configuração de alertas */
 .alert-setup {
   flex: 1;
   background-color: white;
@@ -670,6 +693,7 @@
   gap: var(--space-3);
 }
 
+/* Painel de visualização dos alertas */
 .alert-preview {
   flex: 1;
   background-color: white;
@@ -697,6 +721,7 @@
   margin-bottom: var(--space-4);
 }
 
+/* Lista de previsão de alertas */
 .alert-forecast {
   display: flex;
   flex-direction: column;
@@ -716,6 +741,7 @@
   color: var(--color-primary-800);
 }
 
+/* Badges de alerta */
 .alert-badges {
   display: flex;
   gap: var(--space-2);

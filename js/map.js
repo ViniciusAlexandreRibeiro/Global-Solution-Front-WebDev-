@@ -1,115 +1,80 @@
 // Map JavaScript File for InfraCheck
 
-// Placeholder for map initialization (will use a mapping library in production)
+// Função para inicializar o mapa interativo de danos
 function initMap() {
   const mapElement = document.getElementById('interactive-map');
-  
   if (!mapElement) return;
-  
-  // Remove loading indicator
+
+  // Remove indicador de carregamento do mapa
   const loadingIndicator = document.querySelector('.map-loading');
   if (loadingIndicator) {
     setTimeout(() => {
       loadingIndicator.style.display = 'none';
-    }, 1500); // Simulate loading time
+    }, 1500); // Simula tempo de carregamento
   }
-  
-  // In a real implementation, this would initialize a map using a library like Leaflet or Google Maps
-  console.log('Map initialized');
-  
-  // Example of how to create a basic map with Leaflet (commented out)
-  /*
-  const map = L.map('interactive-map').setView([-23.5505, -46.6333], 12);
-  
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-  
-  // Add some markers for demonstration
-  const roadMarker = L.marker([-23.5505, -46.6333], {
-    icon: L.divIcon({
-      className: 'custom-marker road-marker',
-      html: '<i class="fas fa-road"></i>',
-      iconSize: [30, 30]
-    })
-  }).addTo(map);
-  
-  roadMarker.bindPopup(`
-    <div class="map-popup">
-      <h3>Alagamento na Av. Paulista</h3>
-      <p>Trecho completamente submerso próximo ao número 1500.</p>
-      <div class="popup-meta">
-        <span class="severity high">Alta Gravidade</span>
-        <span class="status in-progress">Em Andamento</span>
-      </div>
-      <a href="#" class="popup-details">Ver Detalhes</a>
-    </div>
-  `);
-  */
+
+  // Aqui seria feita a inicialização real do mapa com biblioteca de mapas
+  console.log('Mapa interativo inicializado');
 }
 
-// Placeholder for route map initialization
+// Função para inicializar o mapa de rotas
 function initRouteMap() {
   const routeMapElement = document.getElementById('route-map');
-  
   if (!routeMapElement) return;
-  
-  // In a real implementation, this would initialize a map for the route planner
-  console.log('Route map initialized');
+
+  // Aqui seria feita a inicialização real do mapa de rotas
+  console.log('Mapa de rotas inicializado');
 }
 
-// Placeholder for location picker map initialization
+// Função para inicializar o mapa de seleção de localização
 function initLocationPicker() {
   const locationPickerElement = document.getElementById('location-picker-map');
-  
   if (!locationPickerElement) return;
-  
-  // In a real implementation, this would initialize a map for selecting a location
-  console.log('Location picker initialized');
+
+  // Aqui seria feita a inicialização real do mapa de seleção de localização
+  console.log('Mapa de seleção de localização inicializado');
 }
 
-// Filter controls functionality
+// Função para ativar filtros do mapa
 function initMapFilters() {
   const filterCheckboxes = document.querySelectorAll('.filter-options input[type="checkbox"]');
-  
   if (!filterCheckboxes.length) return;
-  
+
   filterCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
-      // In a real implementation, this would filter the markers on the map
-      console.log(`Filter changed: ${checkbox.name} = ${checkbox.checked}`);
+      // Aqui seria feita a filtragem dos marcadores no mapa
+      console.log(`Filtro alterado: ${checkbox.name} = ${checkbox.checked}`);
     });
   });
 }
 
-// Route calculation functionality
+// Função para cálculo de rotas
 function initRouteCalculation() {
   const calculateRouteBtn = document.getElementById('calculate-route');
-  
   if (!calculateRouteBtn) return;
-  
+
   calculateRouteBtn.addEventListener('click', () => {
-    // Get route parameters
+    // Obtém parâmetros da rota
     const startLocation = document.getElementById('route-start').value;
     const endLocation = document.getElementById('route-end').value;
     const routeType = document.querySelector('input[name="route-type"]:checked').value;
     const vehicleType = document.querySelector('input[name="vehicle-type"]:checked').value;
-    
+
     if (!startLocation || !endLocation) {
       alert('Por favor, insira os endereços de origem e destino.');
       return;
     }
-    
-    // Simulate route calculation
-    console.log(`Calculating route from ${startLocation} to ${endLocation}`);
-    console.log(`Route type: ${routeType}, Vehicle type: ${vehicleType}`);
-    
-    // Simulate route results
+
+    // Simula cálculo de rota
+    console.log(`Calculando rota de ${startLocation} para ${endLocation}`);
+    console.log(`Tipo de rota: ${routeType}, Veículo: ${vehicleType}`);
+
+    // Simula exibição dos resultados da rota
     document.getElementById('route-distance').textContent = '12.5 km';
     document.getElementById('route-time').textContent = '28 min';
     document.getElementById('route-warnings').textContent = '3 alertas';
-    
-    // Add route steps
+
+    // Adiciona etapas da rota
     const routeSteps = document.getElementById('route-steps');
     routeSteps.innerHTML = `
       <div class="route-step">
@@ -152,27 +117,23 @@ function initRouteCalculation() {
   });
 }
 
-// Current location functionality
+// Função para usar localização atual do usuário
 function initCurrentLocation() {
   const useCurrentLocationBtn = document.getElementById('use-current-location');
-  
   if (!useCurrentLocationBtn) return;
-  
+
   useCurrentLocationBtn.addEventListener('click', () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
           const lat = position.coords.latitude;
           const lng = position.coords.longitude;
-          
-          // In a real implementation, this would center the map on the user's location
-          console.log(`Got current location: ${lat}, ${lng}`);
-          
-          // Simulate setting the location
+          // Aqui seria feito o centramento do mapa na localização do usuário
+          console.log(`Localização atual obtida: ${lat}, ${lng}`);
           alert(`Localização obtida com sucesso: ${lat.toFixed(4)}, ${lng.toFixed(4)}`);
         },
         error => {
-          console.error('Error getting location:', error);
+          console.error('Erro ao obter localização:', error);
           alert('Não foi possível obter sua localização. Por favor, verifique as permissões do navegador.');
         }
       );
@@ -182,31 +143,28 @@ function initCurrentLocation() {
   });
 }
 
-// Load more reports functionality
+// Função para carregar mais relatórios na lista
 function initLoadMoreReports() {
   const loadMoreBtn = document.getElementById('load-more-reports');
-  
   if (!loadMoreBtn) return;
-  
+
   loadMoreBtn.addEventListener('click', () => {
-    // Simulate loading more reports
+    // Simula carregamento de mais relatórios
     const reportsList = document.querySelector('.reports-list');
-    
-    // Clone existing reports to simulate loading more
     const existingReports = document.querySelectorAll('.report-card');
     if (existingReports.length === 0) return;
-    
+
     const reportTypesArray = ['road', 'bridge', 'building', 'power', 'water'];
     const severityArray = ['low', 'medium', 'high', 'critical'];
-    
-    // Add 4 more reports
+
+    // Adiciona 4 novos relatórios simulados
     for (let i = 0; i < 4; i++) {
       const newReport = document.createElement('div');
       newReport.className = 'report-card';
-      
+
       const randomType = reportTypesArray[Math.floor(Math.random() * reportTypesArray.length)];
       const randomSeverity = severityArray[Math.floor(Math.random() * severityArray.length)];
-      
+
       newReport.innerHTML = `
         <div class="report-header">
           <span class="report-type ${randomType}">${randomType.charAt(0).toUpperCase() + randomType.slice(1)}</span>
@@ -219,11 +177,11 @@ function initLoadMoreReports() {
           <a href="#" class="report-details">Ver Detalhes</a>
         </div>
       `;
-      
+
       reportsList.appendChild(newReport);
     }
-    
-    // Update shown count
+
+    // Atualiza contador de relatórios exibidos (se existir)
     const shownCountElement = document.getElementById('shown-count');
     if (shownCountElement) {
       const currentCount = parseInt(shownCountElement.textContent);
@@ -232,27 +190,21 @@ function initLoadMoreReports() {
   });
 }
 
-// Report form submission
+// Função para envio do formulário de relatório de dano
 function initReportForm() {
   const reportForm = document.getElementById('damage-report-form');
-  
   if (!reportForm) return;
-  
+
   reportForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    
-    // In a real implementation, this would submit the form data to the server
-    console.log('Report form submitted');
-    
-    // Simulate success message
+    // Aqui seria feito o envio real dos dados para o servidor
+    console.log('Formulário de relatório enviado');
     alert('Relatório enviado com sucesso! Obrigado por contribuir para a segurança de todos.');
-    
-    // Reset the form
     reportForm.reset();
   });
 }
 
-// Initialize all map-related functions when DOM is loaded
+// Inicializa todas as funções relacionadas ao mapa ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
   initMap();
   initRouteMap();

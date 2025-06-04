@@ -1,30 +1,28 @@
-/* InfraCheck Specific Styles */
+/* Estilos exclusivos para a ferramenta InfraCheck */
 
-/* Page Specific Variables */
+/* Variáveis de cor para tipos de infraestrutura e severidade */
 :root {
   --color-road: #FF9800;
   --color-bridge: #9C27B0;
   --color-building: #2196F3;
   --color-power: #F44336;
   --color-water: #03A9F4;
-  
   --color-severity-low: #4CAF50;
   --color-severity-medium: #FFC107;
   --color-severity-high: #FF5722;
   --color-severity-critical: #F44336;
-  
   --color-status-reported: #9E9E9E;
   --color-status-verified: #2196F3;
   --color-status-in-progress: #FF9800;
   --color-status-resolved: #4CAF50;
 }
 
-/* Background for InfraCheck */
+/* Imagem de fundo da página InfraCheck */
 .page-infracheck .page-hero {
   background-image: url('https://images.pexels.com/photos/1446076/pexels-photo-1446076.jpeg');
 }
 
-/* Map Container Styles */
+/* Container do mapa principal */
 .map-container {
   background-color: white;
   border-radius: var(--border-radius-lg);
@@ -33,6 +31,7 @@
   margin-bottom: var(--space-6);
 }
 
+/* Barra de filtros e controles do mapa */
 .map-controls {
   display: flex;
   padding: var(--space-4);
@@ -40,6 +39,7 @@
   border-bottom: 1px solid var(--color-neutral-200);
 }
 
+/* Grupo de filtros do mapa */
 .filter-group {
   flex: 1;
   padding: 0 var(--space-3);
@@ -69,6 +69,7 @@
   margin-right: var(--space-1);
 }
 
+/* Badge de severidade */
 .severity {
   padding: var(--space-1) var(--space-2);
   border-radius: var(--border-radius-sm);
@@ -96,6 +97,7 @@
   color: var(--color-severity-critical);
 }
 
+/* Badge de status do relatório */
 .status {
   padding: var(--space-1) var(--space-2);
   border-radius: var(--border-radius-sm);
@@ -123,11 +125,13 @@
   color: var(--color-status-resolved);
 }
 
+/* Área do mapa interativo */
 #interactive-map {
   height: 500px;
   position: relative;
 }
 
+/* Tela de carregamento do mapa */
 .map-loading {
   position: absolute;
   top: 0;
@@ -148,6 +152,7 @@
   font-weight: 500;
 }
 
+/* Legenda do mapa */
 .map-legend {
   padding: var(--space-4);
   background-color: white;
@@ -201,7 +206,7 @@
   background-color: var(--color-water);
 }
 
-/* Report Form Styles */
+/* Formulário de novo relatório */
 .report-form {
   background-color: white;
   border-radius: var(--border-radius-lg);
@@ -251,6 +256,7 @@
   margin-bottom: 0;
 }
 
+/* Upload de arquivos no relatório */
 .file-upload {
   position: relative;
 }
@@ -298,6 +304,7 @@
   margin-top: var(--space-3);
 }
 
+/* Mapa para seleção de localização no formulário */
 .location-picker-map {
   height: 200px;
   border-radius: var(--border-radius-md);
@@ -305,19 +312,21 @@
   margin-bottom: var(--space-3);
 }
 
+/* Texto de ajuda nos formulários */
 .helper-text {
   font-size: var(--font-size-small);
   color: var(--color-neutral-600);
   margin-bottom: var(--space-3);
 }
 
+/* Botões de ação do formulário */
 .form-actions {
   display: flex;
   gap: var(--space-4);
   margin-top: var(--space-6);
 }
 
-/* Route Optimization Styles */
+/* Área de otimização de rotas */
 .route-planner {
   display: flex;
   gap: var(--space-6);
@@ -348,6 +357,7 @@
   margin-right: var(--space-2);
 }
 
+/* Seleção de tipo de veículo */
 .vehicle-type {
   margin-bottom: var(--space-4);
 }
@@ -379,6 +389,7 @@
   color: var(--color-primary-700);
 }
 
+/* Mapa de rotas */
 .route-map {
   flex: 1;
   height: 400px;
@@ -387,6 +398,7 @@
   overflow: hidden;
 }
 
+/* Detalhes da rota otimizada */
 .route-details {
   background-color: white;
   border-radius: var(--border-radius-lg);
@@ -430,7 +442,7 @@
   padding: var(--space-4);
 }
 
-/* Recent Reports */
+/* Lista de relatórios recentes */
 .reports-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -458,6 +470,7 @@
   margin-bottom: var(--space-3);
 }
 
+/* Badge de tipo de infraestrutura no relatório */
 .report-type {
   padding: var(--space-1) var(--space-2);
   border-radius: var(--border-radius-sm);
@@ -514,6 +527,7 @@
   align-items: center;
 }
 
+/* Badge de severidade no relatório */
 .report-severity {
   padding: var(--space-1) var(--space-2);
   border-radius: var(--border-radius-sm);
@@ -541,6 +555,7 @@
   color: var(--color-severity-critical);
 }
 
+/* Link para detalhes do relatório */
 .report-details {
   font-size: var(--font-size-small);
   font-weight: 500;
@@ -552,6 +567,7 @@
   text-decoration: underline;
 }
 
+/* Botão para ver mais relatórios */
 .view-more-container {
   text-align: center;
 }

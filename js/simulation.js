@@ -1,18 +1,13 @@
 // Simulation JavaScript File for SimFlood
 
-// Placeholder for risk map initialization
+// Função para inicializar o mapa de risco
 function initRiskMap() {
   const riskMapElement = document.getElementById('risk-map-container');
-  
   if (!riskMapElement) return;
-  
-  // Remove loading indicator
   const loadingIndicator = document.querySelector('.map-loading');
   if (loadingIndicator) {
     setTimeout(() => {
       loadingIndicator.style.display = 'none';
-      
-      // Add placeholder content to demonstrate the map
       const mapContent = document.createElement('div');
       mapContent.className = 'placeholder-map-content';
       mapContent.innerHTML = `
@@ -24,57 +19,41 @@ function initRiskMap() {
         </div>
       `;
       riskMapElement.appendChild(mapContent);
-    }, 1500); // Simulate loading time
+    }, 1500);
   }
 }
 
-// Placeholder for simulation map initialization
+// Função para inicializar o mapa da simulação
 function initSimulationMap() {
   const simulationMapElement = document.getElementById('simulation-map');
-  
   if (!simulationMapElement) return;
-  
-  // In a real implementation, this would initialize a map for the simulation
-  console.log('Simulation map ready for data');
+  console.log('Mapa de simulação pronto para receber dados');
 }
 
-// Placeholder for historical map initialization
+// Função para inicializar o mapa histórico
 function initHistoricalMap() {
   const historicalMapElement = document.getElementById('historical-map');
-  
   if (!historicalMapElement) return;
-  
-  // In a real implementation, this would initialize a map for historical data
-  console.log('Historical map ready for data');
+  console.log('Mapa histórico pronto para receber dados');
 }
 
-// Placeholder for preview map initialization
+// Função para inicializar o mapa de previsão de alertas
 function initPreviewMap() {
   const previewMapElement = document.getElementById('preview-map');
-  
   if (!previewMapElement) return;
-  
-  // In a real implementation, this would initialize a map for alert previews
-  console.log('Preview map ready for data');
+  console.log('Mapa de previsão pronto para receber dados');
 }
 
-// View selector functionality
+// Função para alternar visualizações do mapa
 function initViewSelector() {
   const viewOptions = document.querySelectorAll('input[name="map-view"]');
-  
   if (!viewOptions.length) return;
-  
   viewOptions.forEach(option => {
     option.addEventListener('change', () => {
       const viewType = option.value;
-      
-      // In a real implementation, this would change the map view type
-      console.log(`View changed to: ${viewType}`);
-      
-      // Simulate changing the view
+      console.log(`Visualização alterada para: ${viewType}`);
       const riskMapContainer = document.getElementById('risk-map-container');
       if (riskMapContainer) {
-        // Change the map's appearance based on selected view
         switch (viewType) {
           case 'risk':
             riskMapContainer.style.backgroundColor = '#f5f5f5';
@@ -94,80 +73,62 @@ function initViewSelector() {
   });
 }
 
-// Location search functionality
+// Função para busca de localização no mapa de risco
 function initLocationSearch() {
   const searchButton = document.getElementById('search-location');
   const locationInput = document.getElementById('risk-location');
-  
   if (!searchButton || !locationInput) return;
-  
   searchButton.addEventListener('click', () => {
     const location = locationInput.value.trim();
-    
     if (!location) {
       alert('Por favor, digite um endereço ou cidade para buscar.');
       return;
     }
-    
-    // In a real implementation, this would search for the location on the map
-    console.log(`Searching for location: ${location}`);
-    
-    // Simulate success
+    console.log(`Buscando localização: ${location}`);
     alert(`Localização "${location}" encontrada e centralizada no mapa.`);
   });
 }
 
-// Simulation range sliders functionality
+// Função para atualizar valores dos sliders da simulação
 function initSimulationRangeSliders() {
   const rainfallSlider = document.getElementById('rainfall-amount');
   const rainfallValue = document.getElementById('rainfall-value');
-  
   const durationSlider = document.getElementById('rainfall-duration');
   const durationValue = document.getElementById('duration-value');
-  
   const saturationSlider = document.getElementById('soil-saturation');
   const saturationValue = document.getElementById('saturation-value');
-  
   const tideSlider = document.getElementById('tide-level');
   const tideValue = document.getElementById('tide-value');
-  
   const riverSlider = document.getElementById('river-level');
   const riverValue = document.getElementById('river-value');
-  
   const densitySlider = document.getElementById('urban-density');
   const densityValue = document.getElementById('density-value');
-  
-  // Update displayed values when sliders change
+
   if (rainfallSlider && rainfallValue) {
     rainfallSlider.addEventListener('input', () => {
       rainfallValue.textContent = rainfallSlider.value;
     });
   }
-  
   if (durationSlider && durationValue) {
     durationSlider.addEventListener('input', () => {
       durationValue.textContent = durationSlider.value;
     });
   }
-  
   if (saturationSlider && saturationValue) {
     saturationSlider.addEventListener('input', () => {
       saturationValue.textContent = saturationSlider.value;
     });
   }
-  
   if (tideSlider && tideValue) {
     tideSlider.addEventListener('input', () => {
       tideValue.textContent = parseFloat(tideSlider.value).toFixed(1);
     });
   }
-  
   if (riverSlider && riverValue) {
     riverSlider.addEventListener('input', () => {
       riverValue.textContent = riverSlider.value;
     });
   }
-  
   if (densitySlider && densityValue) {
     densitySlider.addEventListener('input', () => {
       densityValue.textContent = densitySlider.value;
@@ -175,54 +136,40 @@ function initSimulationRangeSliders() {
   }
 }
 
-// Run simulation functionality
+// Função para executar, resetar e salvar simulação
 function initRunSimulation() {
   const runSimulationBtn = document.getElementById('run-simulation');
   const resetSimulationBtn = document.getElementById('reset-simulation');
   const saveScenarioBtn = document.getElementById('save-scenario');
-  
   const timeSlider = document.getElementById('time-slider');
   const playBtn = document.getElementById('play-simulation');
   const pauseBtn = document.getElementById('pause-simulation');
   const resetPlaybackBtn = document.getElementById('reset-playback');
-  
   if (!runSimulationBtn) return;
-  
-  // Run simulation
+
+  // Executar simulação
   runSimulationBtn.addEventListener('click', () => {
-    // Get simulation parameters
     const location = document.getElementById('sim-location').value;
     const rainfall = document.getElementById('rainfall-amount').value;
     const duration = document.getElementById('rainfall-duration').value;
     const saturation = document.getElementById('soil-saturation').value;
     const tide = document.getElementById('tide-level').value;
     const drainage = document.querySelector('input[name="drainage"]:checked').value;
-    
     if (!location) {
       alert('Por favor, insira uma localização para a simulação.');
       return;
     }
-    
-    // In a real implementation, this would run the simulation with the provided parameters
-    console.log('Running simulation with parameters:');
+    console.log('Executando simulação com os parâmetros:');
     console.log({ location, rainfall, duration, saturation, tide, drainage });
-    
-    // Simulate running the simulation
     runSimulationBtn.disabled = true;
     runSimulationBtn.textContent = 'Processando...';
-    
     setTimeout(() => {
-      // Update UI to show simulation results
       runSimulationBtn.disabled = false;
       runSimulationBtn.textContent = 'Executar Simulação';
-      
-      // Enable playback controls
       if (timeSlider) timeSlider.disabled = false;
       if (playBtn) playBtn.disabled = false;
       if (pauseBtn) pauseBtn.disabled = false;
       if (resetPlaybackBtn) resetPlaybackBtn.disabled = false;
-      
-      // Update visualization tab
       const simulationMap = document.getElementById('simulation-map');
       if (simulationMap) {
         simulationMap.innerHTML = `
@@ -235,15 +182,12 @@ function initRunSimulation() {
           </div>
         `;
       }
-      
-      // Update data tab
       const dataSummary = document.querySelector('.data-summary .data-grid');
       if (dataSummary) {
         const area = (rainfall * duration * (saturation / 100)).toFixed(2);
         const population = Math.floor(area * 250);
         const depth = (rainfall * 0.01 * (saturation / 100)).toFixed(2);
         const peakTime = Math.floor(duration * 0.4);
-        
         dataSummary.innerHTML = `
           <div class="data-item">
             <h4>Área Afetada</h4>
@@ -263,8 +207,6 @@ function initRunSimulation() {
           </div>
         `;
       }
-      
-      // Update charts
       const chartPlaceholders = document.querySelectorAll('.chart-placeholder');
       chartPlaceholders.forEach(placeholder => {
         placeholder.innerHTML = `
@@ -272,11 +214,8 @@ function initRunSimulation() {
           <p>Dados de simulação calculados e prontos para visualização</p>
         `;
       });
-      
-      // Update timeline
       const timelinePlaceholder = document.querySelector('.timeline-placeholder');
       const floodTimeline = document.querySelector('.flood-timeline');
-      
       if (timelinePlaceholder && floodTimeline) {
         timelinePlaceholder.style.display = 'none';
         floodTimeline.style.display = 'block';
@@ -313,34 +252,25 @@ function initRunSimulation() {
           </div>
         `;
       }
-      
-      // Show an alert to inform the user
       alert('Simulação concluída com sucesso! Você pode visualizar os resultados nos diferentes painéis.');
-    }, 3000); // Simulate processing time
+    }, 3000);
   });
-  
-  // Reset simulation
+
+  // Resetar simulação
   if (resetSimulationBtn) {
     resetSimulationBtn.addEventListener('click', () => {
-      // Reset all form fields to default values
       const form = resetSimulationBtn.closest('form');
       if (form) form.reset();
-      
-      // Reset displayed values
       document.getElementById('rainfall-value').textContent = '100';
       document.getElementById('duration-value').textContent = '24';
       document.getElementById('saturation-value').textContent = '50';
       document.getElementById('tide-value').textContent = '1.0';
-      
       if (document.getElementById('river-value')) {
         document.getElementById('river-value').textContent = '50';
       }
-      
       if (document.getElementById('density-value')) {
         document.getElementById('density-value').textContent = '70';
       }
-      
-      // Reset simulation view
       const simulationMap = document.getElementById('simulation-map');
       if (simulationMap) {
         simulationMap.innerHTML = `
@@ -350,8 +280,6 @@ function initRunSimulation() {
           </div>
         `;
       }
-      
-      // Disable playback controls
       if (timeSlider) {
         timeSlider.disabled = true;
         timeSlider.value = 0;
@@ -359,120 +287,85 @@ function initRunSimulation() {
       if (playBtn) playBtn.disabled = true;
       if (pauseBtn) pauseBtn.disabled = true;
       if (resetPlaybackBtn) resetPlaybackBtn.disabled = true;
-      
-      // Alert the user
       alert('Simulação resetada. Todos os parâmetros foram restaurados aos valores padrão.');
     });
   }
-  
-  // Save scenario
+
+  // Salvar cenário da simulação
   if (saveScenarioBtn) {
     saveScenarioBtn.addEventListener('click', () => {
-      // In a real implementation, this would save the current scenario
       const scenarioName = prompt('Digite um nome para este cenário:');
-      
       if (scenarioName) {
-        // Simulate saving the scenario
         alert(`Cenário "${scenarioName}" salvo com sucesso! Você poderá carregá-lo posteriormente.`);
       }
     });
   }
-  
-  // Playback controls
+
+  // Controles de reprodução da simulação
   if (playBtn && pauseBtn && resetPlaybackBtn && timeSlider) {
     let playbackInterval;
-    
     playBtn.addEventListener('click', () => {
-      // Start playback
       clearInterval(playbackInterval);
       playbackInterval = setInterval(() => {
         if (timeSlider.value < timeSlider.max) {
           timeSlider.value = parseInt(timeSlider.value) + 1;
-          // In a real implementation, this would update the map to show the simulation at the current time
         } else {
           clearInterval(playbackInterval);
         }
       }, 100);
     });
-    
     pauseBtn.addEventListener('click', () => {
-      // Pause playback
       clearInterval(playbackInterval);
     });
-    
     resetPlaybackBtn.addEventListener('click', () => {
-      // Reset playback
       clearInterval(playbackInterval);
       timeSlider.value = 0;
     });
-    
     timeSlider.addEventListener('input', () => {
-      // In a real implementation, this would update the map to show the simulation at the selected time
-      console.log(`Time changed to: ${timeSlider.value}`);
+      console.log(`Tempo alterado para: ${timeSlider.value}`);
     });
   }
 }
 
-// Historical data search functionality
+// Função para busca de dados históricos de enchentes
 function initHistoricalSearch() {
   const searchHistoricalBtn = document.getElementById('search-historical');
-  
   if (!searchHistoricalBtn) return;
-  
   searchHistoricalBtn.addEventListener('click', () => {
-    // Get search parameters
     const location = document.getElementById('historical-location').value;
     const startDate = document.getElementById('date-start').value;
     const endDate = document.getElementById('date-end').value;
     const eventType = document.getElementById('event-type').value;
-    
     if (!location) {
       alert('Por favor, insira uma localização para a busca.');
       return;
     }
-    
-    // In a real implementation, this would search for historical data with the provided parameters
-    console.log('Searching for historical data with parameters:');
+    console.log('Buscando dados históricos com os parâmetros:');
     console.log({ location, startDate, endDate, eventType });
-    
-    // Simulate searching
     searchHistoricalBtn.disabled = true;
     searchHistoricalBtn.textContent = 'Buscando...';
-    
     setTimeout(() => {
-      // Update UI to show search results
       searchHistoricalBtn.disabled = false;
       searchHistoricalBtn.textContent = 'Buscar Eventos';
-      
-      // Show some example events
       const eventList = document.querySelector('.event-list-body');
       if (eventList) {
-        // Remove the "no events" message
         const noEventsMsg = eventList.querySelector('.no-events');
         if (noEventsMsg) noEventsMsg.style.display = 'none';
-        
-        // Show the example events
         const eventItems = eventList.querySelectorAll('.event-item');
         eventItems.forEach(item => {
           item.style.display = 'grid';
         });
-        
-        // Add some more events
         for (let i = 0; i < 3; i++) {
           const randomYear = 2015 + Math.floor(Math.random() * 8);
           const randomMonth = 1 + Math.floor(Math.random() * 12);
           const randomDay = 1 + Math.floor(Math.random() * 28);
           const formattedDate = `${randomDay.toString().padStart(2, '0')}/${randomMonth.toString().padStart(2, '0')}/${randomYear}`;
-          
           const eventTypes = ['Enchente', 'Enxurrada', 'Inundação Costeira', 'Inundação Fluvial'];
           const randomType = eventTypes[Math.floor(Math.random() * eventTypes.length)];
-          
           const locations = ['Rio Tietê, São Paulo', 'Rio Doce, Minas Gerais', 'Litoral de Santa Catarina', 'Vale do Itajaí, SC', 'Região Serrana, RJ'];
           const randomLocation = locations[Math.floor(Math.random() * locations.length)];
-          
           const impacts = ['Alto', 'Médio', 'Baixo'];
           const randomImpact = impacts[Math.floor(Math.random() * impacts.length)];
-          
           const newEvent = document.createElement('div');
           newEvent.className = 'event-item';
           newEvent.innerHTML = `
@@ -485,12 +378,9 @@ function initHistoricalSearch() {
               <button class="compare-event"><i class="fas fa-chart-line"></i></button>
             </div>
           `;
-          
           eventList.appendChild(newEvent);
         }
       }
-      
-      // Update the historical map
       const historicalMap = document.getElementById('historical-map');
       if (historicalMap) {
         const mapPlaceholder = historicalMap.querySelector('.map-placeholder');
@@ -501,27 +391,18 @@ function initHistoricalSearch() {
           `;
         }
       }
-      
-      // Alert the user
       alert(`Encontrados eventos históricos para "${location}" no período selecionado.`);
-    }, 2000); // Simulate loading time
+    }, 2000);
   });
 }
 
-// Generate historical chart functionality
+// Função para gerar gráficos de dados históricos
 function initGenerateChart() {
   const generateChartBtn = document.getElementById('generate-chart');
-  
   if (!generateChartBtn) return;
-  
   generateChartBtn.addEventListener('click', () => {
-    // Get chart type
     const chartType = document.getElementById('chart-type').value;
-    
-    // In a real implementation, this would generate a chart of the selected type
-    console.log(`Generating chart of type: ${chartType}`);
-    
-    // Simulate generating a chart
+    console.log(`Gerando gráfico do tipo: ${chartType}`);
     const chartDisplay = document.querySelector('.chart-display');
     if (chartDisplay) {
       const placeholder = chartDisplay.querySelector('.chart-placeholder');
@@ -535,30 +416,22 @@ function initGenerateChart() {
   });
 }
 
-// Alert form submission
+// Função para envio do formulário de alertas
 function initAlertForm() {
   const alertForm = document.getElementById('alert-form');
-  
   if (!alertForm) return;
-  
   alertForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    
-    // Get form data
     const location = document.getElementById('alert-location').value;
     const radius = document.getElementById('alert-radius').value;
     const email = document.getElementById('contact-email').value;
-    
-    // In a real implementation, this would submit the form data to the server
-    console.log('Alert form submitted with data:');
+    console.log('Formulário de alerta enviado com os dados:');
     console.log({ location, radius, email });
-    
-    // Simulate success message
     alert('Alertas configurados com sucesso! Você receberá notificações conforme suas preferências.');
   });
 }
 
-// Initialize all simulation-related functions when DOM is loaded
+// Inicialização de todas as funções ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
   initRiskMap();
   initSimulationMap();

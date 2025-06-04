@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="page-simflood">
+  <!-- Cabeçalho com logo e menu de navegação -->
   <header id="main-header">
     <div class="container">
       <div class="logo">
@@ -36,7 +37,7 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Seção de destaque do SimFlood -->
     <section class="page-hero">
       <div class="overlay"></div>
       <div class="container">
@@ -48,7 +49,7 @@
       </div>
     </section>
 
-    <!-- Risk Map Section -->
+    <!-- Seção do mapa de risco -->
     <section id="risk-map" class="section">
       <div class="container">
         <h2 class="section-title">Mapa de Risco</h2>
@@ -85,15 +86,19 @@
             </div>
           </div>
         </div>
-        
+        <br>
+        <br>
+        <br>
         <div id="risk-map-container" class="map-container">
-          <!-- Mapa será carregado via JavaScript -->
+          <!-- Mapa de risco será exibido aqui -->
           <div class="map-loading">
             <div class="loader"></div>
             <p>Carregando mapa de risco...</p>
           </div>
         </div>
-        
+        <br>
+        <br>
+        <br>
         <div class="risk-legend">
           <h3>Níveis de Risco:</h3>
           <div class="legend-items">
@@ -122,7 +127,7 @@
       </div>
     </section>
 
-    <!-- Simulation Tool Section -->
+    <!-- Seção do simulador de enchentes -->
     <section id="simulation-tool" class="section alt-bg">
       <div class="container">
         <h2 class="section-title">Simulador de Enchentes</h2>
@@ -130,6 +135,7 @@
         
         <div class="simulation-container">
           <div class="simulation-controls">
+            <!-- Controles para configurar a simulação -->
             <div class="form-group">
               <label for="sim-location">Localização:</label>
               <input type="text" id="sim-location" placeholder="Digite um endereço ou cidade">
@@ -195,6 +201,7 @@
                 <i class="fas fa-chevron-down"></i>
               </button>
               <div class="advanced-panel">
+                <!-- Parâmetros avançados da simulação -->
                 <div class="form-group">
                   <label for="river-level">Nível Inicial dos Rios:</label>
                   <div class="range-slider">
@@ -231,6 +238,7 @@
           </div>
           
           <div class="simulation-result">
+            <!-- Resultados da simulação: visualização, dados e linha do tempo -->
             <div class="result-tabs">
               <button class="tab-button active" data-tab="visualization">Visualização</button>
               <button class="tab-button" data-tab="data">Dados</button>
@@ -240,7 +248,7 @@
             <div class="tab-content">
               <div id="visualization-tab" class="tab-pane active">
                 <div id="simulation-map">
-                  <!-- Mapa de simulação será carregado via JavaScript -->
+                  <!-- Mapa da simulação será exibido aqui -->
                   <div class="map-placeholder">
                     <i class="fas fa-map-marked-alt"></i>
                     <p>Execute a simulação para ver os resultados no mapa</p>
@@ -268,6 +276,7 @@
               </div>
               
               <div id="data-tab" class="tab-pane">
+                <!-- Resumo e gráficos dos dados da simulação -->
                 <div class="data-summary">
                   <h3>Resumo da Simulação</h3>
                   <div class="data-grid">
@@ -310,6 +319,7 @@
               </div>
               
               <div id="timeline-tab" class="tab-pane">
+                <!-- Linha do tempo da enchente simulada -->
                 <div class="timeline-container">
                   <h3>Progressão da Enchente</h3>
                   <div class="timeline-placeholder">
@@ -318,7 +328,7 @@
                   </div>
                   
                   <div class="flood-timeline" style="display: none;">
-                    <!-- Será preenchido via JavaScript após simulação -->
+                    <!-- Linha do tempo será preenchida após simulação -->
                   </div>
                 </div>
               </div>
@@ -328,13 +338,14 @@
       </div>
     </section>
 
-    <!-- Historical Data Section -->
+    <!-- Seção de dados históricos de enchentes -->
     <section id="historical-data" class="section">
       <div class="container">
         <h2 class="section-title">Dados Históricos</h2>
         <p class="section-description">Explore registros de enchentes anteriores para entender padrões e riscos</p>
         
         <div class="historical-controls">
+          <!-- Filtros para busca de eventos históricos -->
           <div class="form-group">
             <label for="historical-location">Localização:</label>
             <input type="text" id="historical-location" placeholder="Digite um endereço ou cidade">
@@ -364,6 +375,7 @@
         </div>
         
         <div class="historical-results">
+          <!-- Resultados dos eventos históricos -->
           <div class="results-tabs">
             <button class="result-tab active" data-result="map-view">Mapa</button>
             <button class="result-tab" data-result="list-view">Lista</button>
@@ -373,7 +385,7 @@
           <div class="result-content">
             <div id="historical-map-view" class="result-pane active">
               <div id="historical-map">
-                <!-- Mapa histórico será carregado via JavaScript -->
+                <!-- Mapa histórico será exibido aqui -->
                 <div class="map-placeholder">
                   <i class="fas fa-history"></i>
                   <p>Busque eventos para visualizar no mapa</p>
@@ -393,18 +405,7 @@
                 
                 <div class="event-list-body">
                   <p class="no-events">Nenhum evento histórico encontrado. Ajuste os filtros e tente novamente.</p>
-                  
-                  <!-- Eventos de exemplo, serão substituídos por dados reais -->
-                  <div class="event-item" style="display: none;">
-                    <div class="event-date">12/02/2023</div>
-                    <div class="event-type">Enchente</div>
-                    <div class="event-location">Rio Tietê, São Paulo</div>
-                    <div class="event-impact">Alto</div>
-                    <div class="event-actions">
-                      <button class="view-event"><i class="fas fa-eye"></i></button>
-                      <button class="compare-event"><i class="fas fa-chart-line"></i></button>
-                    </div>
-                  </div>
+                  <!-- Eventos serão exibidos dinamicamente -->
                 </div>
               </div>
             </div>
@@ -436,7 +437,7 @@
       </div>
     </section>
 
-    <!-- Early Warning System -->
+    <!-- Seção do sistema de alerta precoce -->
     <section id="warning-system" class="section alt-bg">
       <div class="container">
         <h2 class="section-title">Sistema de Alerta Precoce</h2>
@@ -444,6 +445,7 @@
         
         <div class="alert-system">
           <div class="alert-setup">
+            <!-- Formulário para configurar alertas -->
             <h3>Configurar Alertas</h3>
             <form id="alert-form">
               <div class="form-group">
@@ -543,11 +545,12 @@
           </div>
           
           <div class="alert-preview">
+            <!-- Visualização dos alertas previstos -->
             <h3>Previsão de Alertas</h3>
             <p class="preview-info">Com base nas suas configurações e dados atuais, veja os possíveis alertas para os próximos 7 dias:</p>
             
             <div class="preview-map" id="preview-map">
-              <!-- Mapa de previsão será carregado via JavaScript -->
+              <!-- Mapa de previsão de alertas será exibido aqui -->
             </div>
             
             <div class="alert-forecast">
@@ -582,6 +585,7 @@
     </section>
   </main>
 
+  <!-- Rodapé com informações institucionais e contatos -->
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -640,6 +644,7 @@
     </div>
   </footer>
 
+  <!-- Botão para voltar ao topo da página -->
   <button id="back-to-top" aria-label="Voltar ao topo">
     <i class="fas fa-arrow-up"></i>
   </button>

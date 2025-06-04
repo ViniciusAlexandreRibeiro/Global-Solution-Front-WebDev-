@@ -1,98 +1,95 @@
-/* Responsive Styles */
+/* Estilos responsivos para diferentes tamanhos de tela */
 
-/* Tablet (up to 1024px) */
+/* Ajustes para tablets (até 1024px) */
 @media (max-width: 1024px) {
-  /* General adjustments */
+  /* Ajuste do espaçamento do container */
   .container {
     padding: 0 var(--space-5);
   }
-  
-  /* Header */
+
+  /* Reduz altura do cabeçalho */
   #main-header .container {
     height: 70px;
   }
-  
+
+  /* Diminui tamanho da logo */
   .logo h1 {
     font-size: var(--font-size-large);
   }
-  
+
+  /* Reduz espaçamento do menu */
   #main-menu {
     gap: var(--space-3);
   }
-  
-  /* Hero Section */
+
+  /* Ajusta título e subtítulo do hero */
   .hero-content h2 {
     font-size: var(--font-size-3xl);
   }
-  
   .hero-content .subtitle {
     font-size: var(--font-size-large);
   }
-  
+
+  /* Reduz espaçamento dos destaques */
   .stats-container {
     gap: var(--space-4);
   }
-  
   .stat-number {
     font-size: var(--font-size-2xl);
   }
-  
-  /* Technologies Section */
+
+  /* Grid de tecnologias em 2 colunas */
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-5);
   }
-  
-  /* Personas Section */
+
+  /* Grid de personas em 3 colunas */
   .personas-container {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4);
   }
-  
-  /* Benefits Section */
+
+  /* Grid de benefícios em 2 colunas */
   .benefits-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-5);
   }
-  
-  /* Tools Section */
+
+  /* Grid de ferramentas em 3 colunas */
   .tools-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-5);
   }
-  
-  /* Footer */
+
+  /* Ajustes no rodapé */
   .footer-content {
     grid-template-columns: 1fr 2fr;
     gap: var(--space-6);
   }
-  
   .footer-logo {
     grid-column: 1 / 2;
   }
-  
   .footer-links {
     grid-column: 2 / 3;
   }
-  
   .footer-social {
     grid-column: 1 / 3;
     margin-top: var(--space-5);
   }
 }
 
-/* Tablets and smaller laptops (up to 900px) */
+/* Ajustes para tablets e notebooks pequenos (até 900px) */
 @media (max-width: 900px) {
-  /* Section padding */
+  /* Reduz padding das seções */
   .section {
     padding: var(--space-8) 0;
   }
-  
-  /* Timeline */
+
+  /* Linha do tempo ajustada para lateral esquerda */
   .timeline::before {
     left: 30px;
   }
-  
   .timeline-item .timeline-content {
     width: calc(100% - 60px);
     margin-left: 60px !important;
@@ -100,78 +97,72 @@
     padding-left: var(--space-5) !important;
     padding-right: var(--space-5) !important;
   }
-  
   .timeline-item .timeline-content::before {
     left: -40px !important;
     right: auto !important;
   }
-  
-  /* Tools Section */
+
+  /* Grid de ferramentas em 2 colunas */
   .tools-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Info Cards */
+
+  /* Grid de cartões de informação em 2 colunas */
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-4);
   }
-  
-  /* InfraCheck Page */
+
+  /* Layout do planejador de rotas em coluna */
   .route-planner {
     flex-direction: column;
   }
-  
   .route-inputs {
     width: 100%;
     margin-bottom: var(--space-5);
   }
-  
   .route-map {
     width: 100%;
     height: 300px;
   }
-  
-  /* SimFlood Page */
+
+  /* Layout da SimFlood em coluna */
   .simulation-container {
     flex-direction: column;
   }
-  
   .simulation-controls {
     width: 100%;
     margin-bottom: var(--space-5);
   }
-  
   .simulation-result {
     width: 100%;
   }
-  
-  /* LifeHub Page */
+
+  /* Grid de matching em coluna */
   .matching-grid {
     grid-template-columns: 1fr;
   }
-  
   .matching-filters {
     margin-bottom: var(--space-5);
   }
 }
 
-/* Mobile (up to 768px) */
+/* Ajustes para mobile (até 768px) */
 @media (max-width: 768px) {
-  /* Typography adjustments */
+  /* Reduz títulos das seções */
   .section-title {
     font-size: var(--font-size-2xl);
   }
-  
   .section-description {
     font-size: var(--font-size-base);
   }
-  
-  /* Header & Navigation */
+
+  /* Exibe botão do menu mobile */
   #mobile-menu-btn {
     display: flex;
   }
-  
+
+  /* Menu mobile lateral */
   #main-menu {
     position: fixed;
     top: 0;
@@ -188,255 +179,207 @@
     z-index: 5;
     gap: var(--space-4);
   }
-  
   #main-menu.active {
     right: 0;
   }
-  
   #main-menu li {
     width: 100%;
   }
-  
   #main-menu li a {
     display: block;
     padding: var(--space-2);
     width: 100%;
   }
-  
   #main-menu li.cta-btn {
     margin-left: 0;
     margin-top: var(--space-4);
   }
-  
   #main-menu li.cta-btn a {
     text-align: center;
   }
-  
-  /* Hero Section */
+
+  /* Ajusta hero para mobile */
   .hero {
     min-height: 500px;
     height: auto;
     padding: 120px 0 var(--space-8);
   }
-  
   .hero-content h2 {
     font-size: var(--font-size-2xl);
   }
-  
   .hero-content .subtitle {
     font-size: var(--font-size-base);
   }
-  
   .stats-container {
     flex-direction: column;
     gap: var(--space-4);
   }
-  
-  /* Technologies Section */
-  .tech-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
-  }
-  
-  /* Personas Section */
-  .personas-container {
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
-  }
-  
-  /* Benefits Section */
-  .benefits-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
-  }
-  
-  /* Tools Section */
+
+  /* Grid de tecnologias, personas, benefícios e ferramentas em 1 coluna */
+  .tech-grid,
+  .personas-container,
+  .benefits-grid,
   .tools-grid {
     grid-template-columns: 1fr;
     gap: var(--space-5);
   }
-  
-  /* Footer */
+
+  /* Rodapé em coluna */
   .footer-content {
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
-  
   .footer-links {
     grid-column: 1;
     grid-template-columns: 1fr;
     gap: var(--space-5);
   }
-  
   .footer-social {
     grid-column: 1;
   }
-  
   .footer-bottom {
     flex-direction: column;
     gap: var(--space-3);
     text-align: center;
   }
-  
-  /* Page Hero */
+
+  /* Ajusta hero das páginas internas */
   .page-hero {
     height: auto;
     min-height: 300px;
     padding: 120px 0 var(--space-6);
   }
-  
   .page-hero .hero-content h2 {
     font-size: var(--font-size-2xl);
   }
-  
-  /* Info Cards */
+
+  /* Cartões de informação em 1 coluna */
   .info-cards {
     margin-top: 0;
     padding-top: var(--space-6);
   }
-  
   .card-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
-  
-  /* InfraCheck Page */
+
+  /* Controles do mapa em coluna */
   .map-controls {
     flex-direction: column;
   }
-  
   .filter-group {
     width: 100%;
     margin-bottom: var(--space-4);
   }
-  
   .form-row {
     flex-direction: column;
   }
-  
   .form-group {
     width: 100% !important;
   }
-  
   .report-card {
     flex-direction: column;
   }
-  
-  /* SimFlood Page */
+
+  /* SimFlood: controles e visualização em coluna */
   .risk-controls {
     flex-direction: column;
   }
-  
   .view-selector {
     margin-top: var(--space-4);
   }
-  
   .tabs-content {
     flex-direction: column;
   }
-  
   .data-grid {
     grid-template-columns: 1fr;
   }
-  
-  /* LifeHub Page */
+
+  /* LifeHub: abas e listas em coluna */
   .registration-tabs {
     flex-direction: column;
   }
-  
   .tab-button {
     width: 100%;
     margin-bottom: var(--space-2);
   }
-  
   .needs-checklist {
     grid-template-columns: 1fr;
   }
-  
   .time-availability {
     overflow-x: auto;
   }
-  
   .needs-list {
     grid-template-columns: 1fr;
   }
-  
   .dashboard-tabs {
     flex-wrap: wrap;
   }
-  
   .dash-tab {
     flex: 1;
     min-width: calc(50% - var(--space-2));
     margin-bottom: var(--space-2);
   }
-  
   .overview-metrics,
   .volunteer-metrics,
   .families-metrics {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
-  
   .hero-buttons {
     flex-direction: column;
     gap: var(--space-3);
   }
-  
   .hero-buttons a {
     width: 100%;
     text-align: center;
   }
 }
 
-/* Small Mobile (up to 480px) */
+/* Ajustes para celulares pequenos (até 480px) */
 @media (max-width: 480px) {
-  /* Container */
+  /* Reduz padding do container */
   .container {
     padding: 0 var(--space-4);
   }
-  
-  /* Typography */
+
+  /* Reduz títulos */
   .section-title {
     font-size: var(--font-size-xl);
   }
-  
   .hero-content h2 {
     font-size: var(--font-size-xl);
   }
-  
-  /* Step Process */
+
+  /* Passos em coluna */
   .step {
     flex-direction: column;
   }
-  
   .step-number {
     margin-bottom: var(--space-3);
     margin-right: 0;
   }
-  
-  /* Testimonials */
+
+  /* Depoimentos menores */
   .testimonial-slide p {
     font-size: var(--font-size-base);
   }
-  
   .testimonial-slide p::before,
   .testimonial-slide p::after {
     display: none;
   }
-  
-  /* Forms */
+
+  /* Formulários em coluna */
   .checkbox-group,
   .radio-group {
     flex-direction: column;
     align-items: flex-start;
   }
-  
   .filter-options {
     flex-direction: column;
   }
-  
-  /* Back to Top */
+
+  /* Botão de voltar ao topo menor */
   #back-to-top {
     right: 20px;
     bottom: 20px;
