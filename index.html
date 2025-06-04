@@ -45,7 +45,7 @@
         <div class="hero-content">
           <h2>Enchentes: Um Desafio Nacional</h2>
           <p class="subtitle">Mais de 14 milhões de brasileiros vivem em áreas de risco de enchentes e deslizamentos.</p>
-          
+
           <div class="stats-container">
             <div class="stat-box">
               <div class="stat-number" data-count="1600">0</div>
@@ -380,7 +380,21 @@
         </div>
       </div>
     </section>
-  </main>
+
+    <!-- Removido o slideshow desta posição (entre problema e tecnologias) -->
+
+    <!-- Adicione o slideshow aqui, logo antes do <footer> -->
+    <section id="slideshow-problema" class="section alt-bg" style="padding-top: 2rem; padding-bottom: 2rem;">
+      <div class="container">
+        <div class="slideshow" aria-label="Imagens ilustrativas de enchentes">
+          <img src="img/enchente1.jpg" alt="Rua alagada com casas afetadas" class="slide active" />
+          <img src="img/enchente2.jpg" alt="Pessoas sendo resgatadas de enchente" class="slide" />
+          <img src="img/enchente3.jpg" alt="Equipe de resgate ajudando moradores" class="slide" />
+          <button class="slideshow-btn prev" aria-label="Imagem anterior"><i class="fas fa-chevron-left"></i></button>
+          <button class="slideshow-btn next" aria-label="Próxima imagem"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
 
   <!-- Rodapé com informações de contato, links e redes sociais -->
   <footer>
@@ -447,5 +461,31 @@
   </button>
 
   <script src="js/main.js"></script>
+  <script>
+  // Slideshow simples para seção problema
+  const slides = document.querySelectorAll('.slideshow .slide');
+  const prevBtn = document.querySelector('.slideshow-btn.prev');
+  const nextBtn = document.querySelector('.slideshow-btn.next');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    setInterval(nextSlide, 5000); // Troca automática a cada 5s
+  }
+</script>
 </body>
 </html>
