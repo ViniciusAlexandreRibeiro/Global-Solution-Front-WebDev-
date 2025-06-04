@@ -6,11 +6,22 @@ const mainMenu = document.getElementById('main-menu');
 const header = document.getElementById('main-header');
 const backToTopBtn = document.getElementById('back-to-top');
 
-// Alterna o menu mobile
+// Alterna o menu mobile (hambúrguer)
 if (mobileMenuBtn && mainMenu) {
   mobileMenuBtn.addEventListener('click', () => {
+    const isActive = mainMenu.classList.toggle('active');
     mobileMenuBtn.classList.toggle('active');
-    mainMenu.classList.toggle('active');
+    mobileMenuBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+  });
+  // Fecha o menu ao clicar em um link (opcional)
+  mainMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (mainMenu.classList.contains('active')) {
+        mainMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 }
 
