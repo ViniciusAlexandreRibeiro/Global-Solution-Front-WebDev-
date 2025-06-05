@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/simflood.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body class="page-simflood">
   <!-- Cabeçalho com logo e menu de navegação -->
@@ -90,11 +91,7 @@
         <br>
         <br>
         <div id="risk-map-container" class="map-container">
-          <!-- Mapa de risco será exibido aqui -->
-          <div class="map-loading">
-            <div class="loader"></div>
-            <p>Carregando mapa de risco...</p>
-          </div>
+          <div id="risk-leaflet-map"></div>
         </div>
         <br>
         <br>
@@ -247,32 +244,7 @@
             
             <div class="tab-content">
               <div id="visualization-tab" class="tab-pane active">
-                <div id="simulation-map">
-                  <!-- Mapa da simulação será exibido aqui -->
-                  <div class="map-placeholder">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <p>Execute a simulação para ver os resultados no mapa</p>
-                  </div>
-                </div>
-                
-                <div class="visualization-controls">
-                  <div class="time-slider-container">
-                    <label for="time-slider">Progressão do Tempo:</label>
-                    <input type="range" id="time-slider" min="0" max="100" value="0" step="1" disabled>
-                    <div class="slider-labels">
-                      <span>0h</span>
-                      <span>24h</span>
-                      <span>48h</span>
-                      <span>72h</span>
-                    </div>
-                  </div>
-                  
-                  <div class="playback-controls">
-                    <button id="play-simulation" disabled><i class="fas fa-play"></i></button>
-                    <button id="pause-simulation" disabled><i class="fas fa-pause"></i></button>
-                    <button id="reset-playback" disabled><i class="fas fa-undo"></i></button>
-                  </div>
-                </div>
+                <div id="simulation-leaflet-map"></div>
               </div>
               
               <div id="data-tab" class="tab-pane">
@@ -650,5 +622,9 @@
   </button>
 
   <script src="js/main.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/monitoramento-rio.js"></script>
+  <script src="js/simulation.js"></script>
 </body>
 </html>

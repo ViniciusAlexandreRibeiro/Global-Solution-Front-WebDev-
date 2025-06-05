@@ -775,3 +775,12 @@
   font-size: var(--font-size-small);
   color: var(--color-neutral-700);
 }
+
+#risk-leaflet-map,
+#simulation-leaflet-map {
+  height: 400px;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  z-index: 1;
+}

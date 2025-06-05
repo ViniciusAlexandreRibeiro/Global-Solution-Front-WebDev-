@@ -127,8 +127,8 @@
 
 /* Área do mapa interativo */
 #interactive-map {
-  height: 500px;
-  position: relative;
+  height: 400px;
+  width: 100%;
 }
 
 /* Tela de carregamento do mapa */
@@ -387,15 +387,6 @@
 
 .vehicle-options input[type="radio"]:checked + i {
   color: var(--color-primary-700);
-}
-
-/* Mapa de rotas */
-.route-map {
-  flex: 1;
-  height: 400px;
-  background-color: var(--color-neutral-200);
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
 }
 
 /* Detalhes da rota otimizada */

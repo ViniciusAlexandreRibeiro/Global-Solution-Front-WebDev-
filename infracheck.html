@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/infracheck.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body class="page-infracheck">
   <!-- Cabeçalho com logo e menu de navegação -->
@@ -306,10 +307,6 @@
             <button id="calculate-route" class="primary-button">Calcular Rota</button>
           </div>
           
-          <div id="route-map" class="route-map">
-            <!-- O mapa de rotas será carregado via JavaScript -->
-          </div>
-          
           <div id="route-details" class="route-details">
             <h3>Detalhes da Rota</h3>
             <div class="route-summary">
@@ -467,6 +464,9 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/map.js"></script>
+
 </body>
 </html>
