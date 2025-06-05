@@ -13,7 +13,7 @@ if (mobileMenuBtn && mainMenu) {
     mobileMenuBtn.classList.toggle('active');
     mobileMenuBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
   });
-  // Fecha o menu ao clicar em um link (opcional)
+  // Fecha o menu ao clicar em um link
   mainMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       if (mainMenu.classList.contains('active')) {
@@ -336,7 +336,7 @@ function initFileUpload() {
   });
 }
 
-// Slideshow simples para seção problema
+// Slideshow simples
 document.addEventListener('DOMContentLoaded', function () {
   const slides = document.querySelectorAll('.slideshow .slide');
   const prevBtn = document.querySelector('.slideshow-btn.prev');
@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (prevBtn && nextBtn) {
     prevBtn.addEventListener('click', prevSlide);
     nextBtn.addEventListener('click', nextSlide);
-    setInterval(nextSlide, 5000); // Troca automática a cada 5s
+    setInterval(nextSlide, 10000);
   }
 });
 

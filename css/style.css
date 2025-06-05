@@ -313,7 +313,7 @@ nav {
   min-height: 600px;
   display: flex;
   align-items: center;
-  background-image: url('https://images.pexels.com/photos/8539517/pexels-photo-8539517.jpeg');
+  background-image: url('../img/capa.jpg');
   background-size: cover;
   background-position: center;
   padding-top: 80px;
@@ -572,7 +572,7 @@ nav {
   color: var(--color-neutral-600);
 }
 
-/* Grid de personas (público-alvo) */
+/* Grid de público-alvo */
 .personas-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1197,11 +1197,11 @@ footer {
   color: var(--color-neutral-600);
 }
 
-/* Adicione ao seu style.css */
+/* Slideshow de imagens */
 .slideshow {
   position: relative;
   width: 100%;
-  max-width: 820px; /* aumentado de 520px para 820px */
+  max-width: 820px;
   margin: 32px auto;
   display: flex;
   align-items: center;
@@ -1213,7 +1213,7 @@ footer {
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.18);
   object-fit: cover;
-  height: 340px; /* aumentado de 220px para 340px */
+  height: 340px;
 }
 .slideshow .slide.active {
   display: block;

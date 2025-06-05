@@ -19,7 +19,7 @@
 
 /* Imagem de fundo da página InfraCheck */
 .page-infracheck .page-hero {
-  background-image: url('https://images.pexels.com/photos/1446076/pexels-photo-1446076.jpeg');
+  background-image: url('../img/foto.jpg');
 }
 
 /* Container do mapa principal */

@@ -18,7 +18,7 @@
 
 /* Imagem de fundo para a página LifeHub */
 .page-lifehub .page-hero {
-  background-image: url('https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg');
+background-image: url('../img/doacao.jpg');
 }
 
 /* Abas de cadastro */

@@ -14,7 +14,7 @@
 
 /* Imagem de fundo para a página SimFlood */
 .page-simflood .page-hero {
-  background-image: url('https://images.pexels.com/photos/1446076/pexels-photo-1446076.jpeg');
+  background-image: url('../img/foto.jpg');
 }
 
 /* Área de controles do mapa de risco */
