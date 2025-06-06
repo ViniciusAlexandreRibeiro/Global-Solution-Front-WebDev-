@@ -28,11 +28,14 @@ A plataforma Aqua Core opera por meio de uma interface simples e poderosa, com o
 ## 👨‍💻 Autores
 
 - **Diego Leite Asprino**  // RM561662
-- **Vinicius Alexandre Aureliano Ribeiro** //
+- **Vinicius Alexandre Aureliano Ribeiro** // RM561606
 
 ## 📫 Contato
 
 Se você deseja saber mais ou contribuir com o projeto, entre em contato com os autores ou acompanhe as atualizações da plataforma.
 
+## Observaçõe
+
+Projeto entregue com algumas limitações devido termos ido além do solicitado e com isso alcaçando partes que há falta de conhecimetno nos limitou, dessa forma futuramente algumas funcionalidades ainda serão trabalhadas. Todos os requisitos referente a Global foram atendidos e concluídos
 ---
 
