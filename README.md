@@ -27,8 +27,8 @@ A plataforma Aqua Core opera por meio de uma interface simples e poderosa, com o
 
 ## 👨‍💻 Autores
 
-- **Diego Leite Asprino**  
-- **Vinicius Alexandre Aureliano Ribeiro**
+- **Diego Leite Asprino**  // RM561662
+- **Vinicius Alexandre Aureliano Ribeiro** //
 
 ## 📫 Contato
 
