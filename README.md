@@ -1,6 +1,6 @@
 # Aqua Core
 
-AAAqua Core é um programa dedicado à **prevenção, monitoramento e mitigação dos impactos das enchentes no Brasil**. Utilizando tecnologia de ponta e uma interface intuitiva, a plataforma oferece recursos essenciais para o enfrentamento de eventos hidrológicos extremos.
+Aqua Core é um programa dedicado à **prevenção, monitoramento e mitigação dos impactos das enchentes no Brasil**. Utilizando tecnologia de ponta e uma interface intuitiva, a plataforma oferece recursos essenciais para o enfrentamento de eventos hidrológicos extremos.
 
 ## 🌊 O que é o Aqua Core?
 
